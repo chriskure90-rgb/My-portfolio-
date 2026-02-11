@@ -1428,3 +1428,12 @@ section {
         padding: 0 1.5rem;
     }
 }
+
+
+/* プロフィール画像を枠の中にきれいに収める */
+.profile-placeholder img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* 角を少し丸くする（お好みで） */
+}
