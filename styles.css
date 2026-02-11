@@ -1435,3 +1435,22 @@ section {
     object-fit: cover;
     border-radius: 8px; /* 角を少し丸くする（お好みで） */
 }
+
+
+/* --- ページ上部のタイトル背景を青グラデーションにする --- */
+.page-header {
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--sky-blue) 100%);
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title {
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.page-description {
+    color: rgba(255, 255, 255, 0.9);
+}
