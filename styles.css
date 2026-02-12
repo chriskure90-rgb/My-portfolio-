@@ -19,7 +19,7 @@
     --text-dark: #2a2a2a;
     --text-light: #666;
     --white: #ffffff;
-    --background: #BAD6FF;         /* 全体の背景を白にするか、薄い青にするかはお好みで */
+    --background: #ffffff;         /* 全体の背景を白にするか、薄い青にするかはお好みで */
     
     /* Typography */
     --font-headline: 'Lora', serif;
