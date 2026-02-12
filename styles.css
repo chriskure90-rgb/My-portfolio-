@@ -10,7 +10,7 @@
     --pale-water: #f0f8ff;      /* とても薄い水色 (背景用) */
     
     /* Functional Colors */
-    --primary: var(--ocean-blue);  /* メインカラー */
+    --primary: var(--sky-blue);  /* メインカラー */
     --secondary: var(--deep-navy); /* サブカラー */
     --accent: var(--sky-blue);     /* 強調したい部分 */
     --dark: var(--deep-navy);      /* 見出しの文字色 */
