@@ -170,7 +170,7 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
 
 .hero-badge {
     display: inline-block;
-    background-color: var(--primary);
+   background-color: #00bfff; 
     color: var(--white);
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
@@ -265,16 +265,16 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
 }
 
 .btn-primary {
-    background-color: var(--primary);
+  background-color: #00bfff;
+    border-color: #00bfff;
     color: var(--white);
-    border-color: var(--primary);
 }
 
 .btn-primary:hover {
-    background-color: var(--crushed-berry);
-    border-color: var(--crushed-berry);
+    background-color: #009acd; 
+    border-color: #009acd;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(221, 45, 74, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
 }
 
 .btn-secondary {
