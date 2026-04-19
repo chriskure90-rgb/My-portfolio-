@@ -1,30 +1,30 @@
 /* ===========================
-   COLOR PALETTE & VARIABLES (Accessible / Universal Design)
+   COLOR PALETTE & VARIABLES (High Visibility)
    =========================== */
 
 :root {
-    /* Color Palette (Universal, High-Contrast) */
-    --ocean-blue: #005A9C;      /* Main clear, high-contrast blue */
-    --deep-navy: #1A2B3C;       /* Very dark navy for strong text contrast */
-    --sky-blue: #2E86AB;        /* Mid-tone blue for accents, darkened for readability */
-    --pale-water: #F4F7F9;      /* Very soft, cool off-white for backgrounds */
+    /* Color Palette (Maximum Contrast) */
+    --ocean-blue: #0033A0;      /* A very deep, vibrant Royal Blue */
+    --deep-navy: #0B192C;       /* Almost black for navy accents */
+    --sky-blue: #1565C0;        /* Stronger mid-blue for accents */
+    --pale-water: #E8F0F8;      /* Slightly darker pale background to make white cards pop */
     
     /* Functional Colors */
-    --primary: var(--ocean-blue);  /* Main brand color */
-    --secondary: var(--deep-navy); /* Sub color */
-    --accent: var(--sky-blue);     /* Highlight color */
-    --dark: var(--deep-navy);      /* Heading text color */
-    --light: var(--pale-water);    /* Soft background color */
+    --primary: var(--ocean-blue); 
+    --secondary: var(--deep-navy); 
+    --accent: var(--sky-blue);     
+    --dark: var(--deep-navy);      
+    --light: var(--pale-water);    
     
-    --text-dark: #212121;          /* Almost black for highest body text readability */
-    --text-light: #595959;         /* Dark gray for secondary text */
+    --text-dark: #000000;          /* Pure black for maximum text visibility */
+    --text-light: #333333;         /* Darker gray for secondary text */
     --white: #ffffff;
-    --background: #FAFAFA;         /* Base background, slightly off-white to reduce glare */
+    --background: #FFFFFF;         /* Pure white base background */
     
-    /* (Adding these mint/green variables so your existing CSS doesn't break) */
-    --frosted-mint: #E8F4F8;       /* Replaced mint with a soft ice-blue for cards */
-    --hunter-green: #004D40;       /* Replaced green with a deep, accessible teal */
-    --crushed-berry: #8E1F2F;      /* A deep, accessible accent red if needed */
+    /* (Fallback variables) */
+    --frosted-mint: #E1EAF5;       
+    --hunter-green: #004D40;       
+    --crushed-berry: #8E1F2F;      
     
     /* Typography */
     --font-headline: 'Lora', serif;
@@ -47,7 +47,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 17px; /* Increased from 16px to make all text slightly larger */
 }
 
 body {
