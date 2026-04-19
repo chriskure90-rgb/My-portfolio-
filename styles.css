@@ -354,7 +354,7 @@ section {
 
 .highlights-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);  /* 常に4列固定 */
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -1357,6 +1357,10 @@ section {
         grid-template-columns: 1fr;
     }
     
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .about-visual,
     .report-sidebar {
         position: static;
@@ -1420,7 +1424,9 @@ section {
     .hero {
         padding: 2rem 1rem;
     }
-    
+    .highlights-grid {
+    grid-template-columns: 1fr;
+}
     .hero-title {
         font-size: 2rem;
     }
