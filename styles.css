@@ -1,25 +1,30 @@
 /* ===========================
-   COLOR PALETTE & VARIABLES
+   COLOR PALETTE & VARIABLES (Accessible / Universal Design)
    =========================== */
 
 :root {
-    /* Color Palette (Blue Theme) */
-    --ocean-blue: #3498db;      /* メインの鮮やかな青 (先生の指示色) */
-    --deep-navy: #2c3e50;       /* 暗めの紺色 (文字やサブカラー) */
-    --sky-blue: #87ceeb;        /* 明るい空色 (アクセント) */
-    --pale-water: #f0f8ff;      /* とても薄い水色 (背景用) */
+    /* Color Palette (Universal, High-Contrast) */
+    --ocean-blue: #005A9C;      /* Main clear, high-contrast blue */
+    --deep-navy: #1A2B3C;       /* Very dark navy for strong text contrast */
+    --sky-blue: #2E86AB;        /* Mid-tone blue for accents, darkened for readability */
+    --pale-water: #F4F7F9;      /* Very soft, cool off-white for backgrounds */
     
     /* Functional Colors */
-    --primary: var(--sky-blue);  /* メインカラー */
-    --secondary: var(--deep-navy); /* サブカラー */
-    --accent: var(--sky-blue);     /* 強調したい部分 */
-    --dark: var(--deep-navy);      /* 見出しの文字色 */
-    --light: var(--pale-water);    /* 薄い背景色 */
+    --primary: var(--ocean-blue);  /* Main brand color */
+    --secondary: var(--deep-navy); /* Sub color */
+    --accent: var(--sky-blue);     /* Highlight color */
+    --dark: var(--deep-navy);      /* Heading text color */
+    --light: var(--pale-water);    /* Soft background color */
     
-    --text-dark: #2a2a2a;
-    --text-light: #666;
+    --text-dark: #212121;          /* Almost black for highest body text readability */
+    --text-light: #595959;         /* Dark gray for secondary text */
     --white: #ffffff;
-    --background: #ffffff;         /* 全体の背景を白にするか、薄い青にするかはお好みで */
+    --background: #FAFAFA;         /* Base background, slightly off-white to reduce glare */
+    
+    /* (Adding these mint/green variables so your existing CSS doesn't break) */
+    --frosted-mint: #E8F4F8;       /* Replaced mint with a soft ice-blue for cards */
+    --hunter-green: #004D40;       /* Replaced green with a deep, accessible teal */
+    --crushed-berry: #8E1F2F;      /* A deep, accessible accent red if needed */
     
     /* Typography */
     --font-headline: 'Lora', serif;
