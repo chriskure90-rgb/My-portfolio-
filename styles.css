@@ -1,23 +1,23 @@
 /* ===========================
-   COLOR PALETTE & VARIABLES (High Visibility)
+   COLOR PALETTE & VARIABLES (Tar Heel Accessible)
    =========================== */
 
 :root {
-    /* Color Palette (Maximum Contrast) */
-    --ocean-blue: #0033A0;      /* A very deep, vibrant Royal Blue */
-    --deep-navy: #0B192C;       /* Almost black for navy accents */
-    --sky-blue: #1565C0;        /* Stronger mid-blue for accents */
-    --pale-water: #E8F0F8;      /* Slightly darker pale background to make white cards pop */
+    /* Color Palette */
+    --carolina-blue-a11y: #007BA7; /* Deepened Carolina Blue to pass text contrast standards */
+    --carolina-blue-true: #4B9CD3; /* True Carolina Blue for hover effects and accents */
+    --charcoal-dark: #1A1A1A;      /* Pure dark charcoal (NO Navy/Duke tones!) */
+    --pale-water: #F0F6FA;         /* Soft Carolina-tinted off-white for backgrounds */
     
     /* Functional Colors */
-    --primary: var(--ocean-blue); 
-    --secondary: var(--deep-navy); 
-    --accent: var(--sky-blue);     
-    --dark: var(--deep-navy);      
+    --primary: var(--carolina-blue-a11y); 
+    --secondary: var(--charcoal-dark); 
+    --accent: var(--carolina-blue-true);     
+    --dark: var(--charcoal-dark);      
     --light: var(--pale-water);    
     
-    --text-dark: #000000;          /* Pure black for maximum text visibility */
-    --text-light: #333333;         /* Darker gray for secondary text */
+    --text-dark: #111111;          /* Almost black for maximum text visibility */
+    --text-light: #444444;         /* Neutral gray for secondary text */
     --white: #ffffff;
     --background: #FFFFFF;         /* Pure white base background */
     
@@ -276,10 +276,10 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
 }
 
 .btn-primary:hover {
-    background-color: #009acd; 
-    border-color: #009acd;
+    background-color: var(--accent); /* Uses True Carolina Blue on hover */
+    border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 191, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(75, 156, 211, 0.4); /* Carolina Blue shadow */
 }
 
 .btn-secondary {
