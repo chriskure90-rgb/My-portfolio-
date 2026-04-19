@@ -1447,7 +1447,7 @@ section {
 
 /* --- ページ上部のタイトル背景を青グラデーションにする --- */
 .page-header {
-    background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--sky-blue) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: var(--white);
     padding: 4rem 2rem;
     text-align: center;
