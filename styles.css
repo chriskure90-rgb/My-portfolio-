@@ -1243,14 +1243,17 @@ section {
 }
 
 /* ===========================
-   CTA SECTION
+   CTA SECTION FIX
    =========================== */
 
 .cta-section {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: var(--primary); 
     color: var(--white);
     text-align: center;
     padding: 5rem 2rem;
+    width: 100%;       
+    display: block;    
+    clear: both;       
 }
 
 .cta-content h2 {
