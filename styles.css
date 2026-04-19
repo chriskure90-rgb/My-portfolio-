@@ -1474,3 +1474,23 @@ section {
     border: 1px solid #CCCCCC; /* Adds a crisp, visible gray line around boxes */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Stronger drop shadow */
 }
+
+/* ===========================
+   LAYOUT BACKGROUND STRIPING
+   =========================== */
+
+/* Make these match the soft body background */
+.featured-projects,
+.timeline-section,
+.portfolio-section,
+.contact-section {
+    background-color: transparent; 
+}
+
+/* Make these pure white to create visual striping */
+.highlights,
+.skills-section {
+    background-color: var(--white);
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+}
