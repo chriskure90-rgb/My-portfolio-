@@ -1,1 +1,252 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report: Kreebo UX Research - Shunki Kure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Shunki Kure</a>
+            <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="report-header">
+        <div class="container">
+            <span class="report-category">UX Research • 2026</span>
+            <h1 class="report-title">Usability & UX Research: Kreebo Reading App</h1>
+            <p class="report-subtitle">A comprehensive UX audit of an AI-powered children's reading app, combining ecosystem mapping, learner journey analysis, usability testing, and WCAG accessibility evaluation.</p>
+            
+            <div class="report-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">3 months</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">UX Researcher</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Topic</span>
+                    <span class="meta-value">EdTech / UX Research</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="report-content">
+        <div class="container">
+            <div class="report-layout">
+
+                <article class="report-main">
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Project Overview</h2>
+                        <p>
+                            <strong>Kreebo</strong> is an AI-powered app that encourages children to read books and create their own stories. This project involved a full-cycle UX investigation: from mapping the product's stakeholder ecosystem to conducting live usability testing sessions with parents. The goal was to identify friction points, evaluate accessibility compliance, and produce actionable recommendations for improving the overall learning experience.
+                        </p>
+                        <p>
+                            The research was structured across three interconnected phases — an ecosystem and context analysis, a learner journey map, and a hands-on usability walkthrough — which were triangulated with quantitative analytics data to build a cohesive picture of where and why the user experience breaks down.
+                        </p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Ecosystem & Context</h2>
+                        <p>
+                            To understand the broader context in which Kreebo operates, I created an <strong>ecosystem map</strong> identifying key stakeholders including Teachers, Students, Parents, School Administrators, Curriculum Developers, Librarians, Product Developers, and a Data Security body.
+                        </p>
+                        <div class="highlight-box">
+                            <h4>Key Stakeholder Tensions</h4>
+                            <p>
+                                Two core tensions emerged: (1) Teachers need personalized reading assignments, but the app's monolingual system limits use for bilingual families. (2) School Administrators require approved tool lists and content standards, while the AI's generative nature makes it difficult to guarantee consistent content quality across grade levels.
+                            </p>
+                        </div>
+                        <p>
+                            These tensions directly informed the friction points uncovered during the usability walkthrough, revealing that product-level design decisions have real downstream consequences for how teachers and parents can realistically use the app.
+                        </p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Usability Findings</h2>
+                        <p>
+                            I conducted user testing sessions with four parents and identified five key friction points using <strong>Nielsen's Heuristics</strong> as diagnostic language:
+                        </p>
+
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>Silent Microphone Failure (Heuristic 1 — Visibility of System Status)</h4>
+                                    <p>When creating a story, the microphone feature loaded indefinitely without providing an error message. All 4 participants were left stranded and forced to type manually. This was the most severe usability failure identified.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>AI Prompting Overload (Heuristic 7 — Flexibility and Efficiency)</h4>
+                                    <p>The AI asked excessive questions during the story generation phase, causing 3 of 4 participants to become frustrated and disengage. Users reported feeling exhausted and giving up on answering.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h4>Frustrating Post-Story Summary Task (Heuristics 2 & 7)</h4>
+                                    <p>After completing a story, participants were required to write an English summary — a task deemed too challenging for children. 3 of 4 participants showed hesitation, generating the highest proportion of negative sentiment in the analytics data.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h4>Vocabulary Quiz UI Confusion (Heuristic 4 — Consistency and Standards)</h4>
+                                    <p>In the word-scramble activity, participants repeatedly tapped blank squares expecting a keyboard, not realizing they needed to drag letter tiles. 2 of 4 participants encountered this issue.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">5</span>
+                                <div class="step-content">
+                                    <h4>Missing Multilingual Support (Heuristic 2 — Match with the Real World)</h4>
+                                    <p>Participants praised the app's reading potential but explicitly requested bilingual story generation. The current monolingual system prevented bilingual families from using the app for their primary educational goal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Accessibility Audit</h2>
+                        <p>
+                            I evaluated the Kreebo Parent Dashboard against 8 WCAG 2.2 criteria:
+                        </p>
+
+                        <ul class="objectives-list">
+                            <li>✅ 1.1.1 — Alt text on images: <strong>Pass</strong></li>
+                            <li>✅ 1.4.3 — Color contrast (4.5:1): <strong>Pass</strong></li>
+                            <li>✅ 2.1.1 — Keyboard navigation: <strong>Pass</strong></li>
+                            <li>✅ 2.4.11 — Focus visible (WCAG 2.2): <strong>Pass</strong></li>
+                            <li>✅ 2.5.8 — Touch target size (WCAG 2.2): <strong>Pass</strong></li>
+                            <li>✅ 3.3.8 — Accessible authentication (WCAG 2.2): <strong>Pass</strong></li>
+                            <li>⚠️ 1.2.2 — Captions for video: <strong>N/A</strong></li>
+                            <li>❌ 3.3.1 — Error identification: <strong>Fail</strong></li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <h4>Critical Failure: Error Identification (WCAG 3.3.1)</h4>
+                            <p>
+                                The app relies entirely on visual cues (e.g., red borders) to communicate errors, with no explicit text descriptions or ARIA tags. This creates a significant barrier for screen reader users and directly explains why the microphone failure left all four usability participants without guidance — the system was technically inaccessible even at the visual level.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Analytics & Triangulation</h2>
+                        <p>
+                            Quantitative analytics data confirmed and strengthened the qualitative findings. Participants' emotional responses were coded across five task phases:
+                        </p>
+
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <span class="result-number">27</span>
+                                <span class="result-label">Positive codes during Reading phase</span>
+                            </div>
+                            <div class="result-card">
+                                <span class="result-number">10</span>
+                                <span class="result-label">Confused codes during Story Generation</span>
+                            </div>
+                            <div class="result-card">
+                                <span class="result-number">12</span>
+                                <span class="result-label">Negative codes during Summary Task</span>
+                            </div>
+                            <div class="result-card">
+                                <span class="result-number">4/4</span>
+                                <span class="result-label">Participants affected by mic failure</span>
+                            </div>
+                        </div>
+
+                        <p>
+                            Two clear patterns emerged: (1) <strong>Silent failures drive confusion</strong> — the WCAG 3.3.1 violation directly caused the most severe usability failure. (2) <strong>High cognitive load vs. core value success</strong> — Kreebo excels at reading engagement but its mandatory interactive tasks create disproportionate friction. The reading phase produced zero negative codes; the summary task produced the highest.
+                        </p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Key Recommendations</h2>
+                        <p>Based on the triangulated evidence, three priority improvements were recommended:</p>
+                        <ul>
+                            <li><strong>Fix error communication:</strong> Add explicit text-based error messages and ARIA labels to address the WCAG 3.3.1 failure and prevent silent microphone failures from stranding users.</li>
+                            <li><strong>Reduce AI cognitive load:</strong> Introduce "Quick Generate" templates or default choices to reduce the number of prompts during story creation and lower user exhaustion.</li>
+                            <li><strong>Explore multilingual support:</strong> Investigate the feasibility of bilingual story generation to address the real-world needs of non-English-speaking families.</li>
+                        </ul>
+                    </section>
+
+                </article>
+
+                <aside class="report-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Project Details</h3>
+                        <dl class="details-list">
+                            <dt>Product Evaluated</dt>
+                            <dd>Kreebo (Children's Reading App)</dd>
+                            <dt>Participants</dt>
+                            <dd>4 Parents</dd>
+                            <dt>Institution</dt>
+                            <dd>UNC School of Education</dd>
+                            <dt>Your Role</dt>
+                            <dd>UX Researcher</dd>
+                        </dl>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Methods Used</h3>
+                        <div class="sidebar-tags">
+                            <span>Ecosystem Mapping</span>
+                            <span>Journey Mapping</span>
+                            <span>Usability Testing</span>
+                            <span>Nielsen's Heuristics</span>
+                            <span>WCAG 2.2 Audit</span>
+                            <span>Learning Analytics</span>
+                            <span>Triangulation</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section sidebar-cta">
+                        <p>Interested in this research?</p>
+                        <a href="contact.html" class="btn btn-small">Get in Touch</a>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="project-navigation">
+        <div class="container">
+            <a href="portfolio.html" class="nav-center">← Back to All Projects</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Shunki Kure</h3>
+                    <p>Innovating the future of education, one project at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shunki Kure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
