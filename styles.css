@@ -509,8 +509,7 @@ section {
 }
 
 .about-visual {
-    position: sticky;
-    top: 100px;
+    position: static;
 }
 
 .profile-placeholder {
