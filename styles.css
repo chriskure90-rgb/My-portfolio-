@@ -1460,3 +1460,18 @@ section {
 .page-description {
     color: rgba(255, 255, 255, 0.9);
 }
+
+/* ===========================
+   HIGH VISIBILITY OVERRIDES
+   =========================== */
+
+.highlight-card, 
+.project-preview, 
+.portfolio-card, 
+.timeline-content,
+.stat-box,
+.contact-info-panel,
+.contact-form-panel {
+    border: 1px solid #CCCCCC; /* Adds a crisp, visible gray line around boxes */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Stronger drop shadow */
+}
