@@ -3,34 +3,29 @@
    =========================== */
 
 :root {
-    /* Color Palette */
-    --carolina-blue-a11y: #007BA7; /* Deepened Carolina Blue to pass text contrast standards */
-    --carolina-blue-true: #4B9CD3; /* True Carolina Blue for hover effects and accents */
-    --charcoal-dark: #1A1A1A;      /* Pure dark charcoal (NO Navy/Duke tones!) */
-    --pale-water: #F0F6FA;         /* Soft Carolina-tinted off-white for backgrounds */
+    --carolina-blue-a11y: #007BA7;
+    --carolina-blue-true: #4B9CD3;
+    --charcoal-dark: #1A1A1A;
+    --pale-water: #F0F6FA;
     
-    /* Functional Colors */
     --primary: var(--carolina-blue-a11y); 
     --secondary: var(--charcoal-dark); 
     --accent: var(--carolina-blue-true);     
     --dark: var(--charcoal-dark);      
     --light: var(--pale-water);    
     
-    --text-dark: #111111;          /* Almost black for maximum text visibility */
-    --text-light: #444444;         /* Neutral gray for secondary text */
+    --text-dark: #111111;
+    --text-light: #444444;
     --white: #ffffff;
-    --background: #FFFFFF;         /* Pure white base background */
+    --background: #FFFFFF;
     
-    /* (Fallback variables) */
     --frosted-mint: #E1EAF5;       
     --hunter-green: #004D40;       
     --crushed-berry: #8E1F2F;      
     
-    /* Typography */
     --font-headline: 'Lora', serif;
     --font-body: 'Inter', sans-serif;
     
-    /* Spacing */
     --container-width: 1200px;
     --section-spacing: 5rem;
 }
@@ -47,13 +42,13 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px; /* Increased from 16px to make all text slightly larger */
+    font-size: 16px;
 }
 
 body {
     font-family: var(--font-body);
     color: var(--text-dark);
-    background-color: var(--light); /* Uses the soft --pale-water color */
+    background-color: var(--light);
     line-height: 1.7;
 }
 
@@ -152,7 +147,7 @@ img {
 }
 
 /* ===========================
-   HERO SECTION — NEW VERSION
+   HERO SECTION
    =========================== */
 
 .hero {
@@ -237,8 +232,10 @@ img {
 
 .hero-buttons {
     display: flex;
+    flex-direction: row;
     gap: 1rem;
     flex-wrap: wrap;
+    width: auto;
     animation: fadeInUp 0.8s ease 0.6s backwards;
 }
 
@@ -262,7 +259,7 @@ img {
     width: 100%;
     height: 480px;
     object-fit: cover;
-    object-position: center top;
+    object-position: left center;
     border-radius: 16px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
     border: 2px solid rgba(0, 191, 255, 0.3);
@@ -325,29 +322,6 @@ img {
     right: 10%;
 }
 
-
-
-@media (max-width: 900px) {
-    .hero-split {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-content {
-        text-align: center;
-    }
-    .hero-buttons {
-        justify-content: center;
-    }
-    .hero-photo-frame img {
-        height: 320px;
-    }
-    .hero-photo-caption {
-        white-space: normal;
-        text-align: center;
-        width: 80%;
-    }
-}
-
 /* ===========================
    BUTTONS
    =========================== */
@@ -364,16 +338,16 @@ img {
 }
 
 .btn-primary {
-  background-color: #00bfff;
+    background-color: #00bfff;
     border-color: #00bfff;
     color: var(--white);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent); /* Uses True Carolina Blue on hover */
+    background-color: var(--accent);
     border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(75, 156, 211, 0.4); /* Carolina Blue shadow */
+    box-shadow: 0 5px 15px rgba(75, 156, 211, 0.4);
 }
 
 .btn-secondary {
@@ -448,7 +422,7 @@ section {
 
 .highlights-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* 常に4列固定 */
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -570,21 +544,22 @@ section {
    =========================== */
 
 .page-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--crushed-berry) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: var(--white);
-    padding: 5rem 2rem 4rem;
+    padding: 4rem 2rem;
     text-align: center;
+    margin-bottom: 3rem;
 }
 
 .page-title {
     font-size: 3.5rem;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .page-description {
     font-size: 1.3rem;
-    opacity: 0.95;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* ===========================
@@ -618,6 +593,13 @@ section {
     color: var(--text-light);
     border: 3px solid var(--primary);
     margin-bottom: 2rem;
+}
+
+.profile-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .about-stats {
@@ -823,6 +805,13 @@ section {
     position: relative;
 }
 
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .image-placeholder {
     font-size: 1.5rem;
     color: var(--white);
@@ -965,7 +954,6 @@ section {
     font-weight: 500;
 }
 
-/* Contact Form */
 .form-instruction {
     font-size: 0.9rem;
     color: var(--text-light);
@@ -1062,7 +1050,6 @@ section {
     font-weight: 600;
 }
 
-/* Report Content Layout */
 .report-content {
     background-color: var(--background);
     padding: 4rem 0;
@@ -1141,7 +1128,6 @@ section {
     border-left: 4px solid var(--primary);
 }
 
-/* Highlight Box */
 .highlight-box {
     background: linear-gradient(135deg, var(--frosted-mint), var(--white));
     padding: 2rem;
@@ -1159,7 +1145,6 @@ section {
     margin-bottom: 0;
 }
 
-/* Process Steps */
 .process-steps {
     margin: 2rem 0;
 }
@@ -1193,7 +1178,6 @@ section {
     margin: 0;
 }
 
-/* Results Grid */
 .results-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -1225,7 +1209,6 @@ section {
     font-weight: 500;
 }
 
-/* Report Sidebar */
 .report-sidebar {
     position: sticky;
     top: 100px;
@@ -1318,7 +1301,6 @@ section {
     background-color: var(--frosted-mint);
 }
 
-/* Project Navigation */
 .project-navigation {
     background-color: var(--white);
     padding: 2rem 0;
@@ -1337,7 +1319,7 @@ section {
 }
 
 /* ===========================
-   CTA SECTION FIX
+   CTA SECTION
    =========================== */
 
 .cta-section {
@@ -1419,148 +1401,13 @@ section {
    =========================== */
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===========================
-   RESPONSIVE DESIGN
-   =========================== */
-
-@media (max-width: 1024px) {
-    .about-grid,
-    .contact-grid,
-    .report-layout {
-        grid-template-columns: 1fr;
-    }
-    
-    .highlights-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .about-visual,
-    .report-sidebar {
-        position: static;
-    }
-    
-    .projects-preview,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    :root {
-        --section-spacing: 3rem;
-    }
-    
-    .nav-menu {
-        gap: 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .section-title,
-    .page-title,
-    .report-title {
-        font-size: 2.5rem;
-    }
-    
-    .cta-content h2 {
-        font-size: 2rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .btn {
-        width: 100%;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .report-main {
-        padding: 2rem 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 2rem 1rem;
-    }
-    .highlights-grid {
-    grid-template-columns: 1fr;
-}
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .container {
-        padding: 0 1.5rem;
-    }
-}
-
-
-/* プロフィール画像を枠の中にきれいに収める */
-.profile-placeholder img {
-    width: 100%;
-    height: 100%; /* CHANGED FROM AUTO TO 100% */
-    object-fit: cover;
-    border-radius: 8px; 
-}
-
-
-/* --- ページ上部のタイトル背景を青グラデーションにする --- */
-.page-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    color: var(--white);
-    padding: 4rem 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.page-title {
-    color: var(--white);
-    margin-bottom: 0.5rem;
-}
-
-.page-description {
-    color: rgba(255, 255, 255, 0.9);
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===========================
@@ -1574,15 +1421,14 @@ section {
 .stat-box,
 .contact-info-panel,
 .contact-form-panel {
-    border: 1px solid #CCCCCC; /* Adds a crisp, visible gray line around boxes */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Stronger drop shadow */
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* ===========================
    LAYOUT BACKGROUND STRIPING
    =========================== */
 
-/* Make these match the soft body background */
 .featured-projects,
 .timeline-section,
 .portfolio-section,
@@ -1590,7 +1436,6 @@ section {
     background-color: transparent; 
 }
 
-/* Make these pure white to create visual striping */
 .highlights,
 .skills-section {
     background-color: var(--white);
@@ -1598,12 +1443,97 @@ section {
     border-bottom: 1px solid #E0E0E0;
 }
 
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
 
-.hero .hero-buttons {
-    flex-direction: row;
-    width: auto;
+@media (max-width: 1024px) {
+    .about-grid,
+    .contact-grid,
+    .report-layout {
+        grid-template-columns: 1fr;
+    }
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-visual,
+    .report-sidebar {
+        position: static;
+    }
+    .projects-preview,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.hero-photo-frame img {
-    object-position: left center; /* center top → left center */
+@media (max-width: 900px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-photo-frame img {
+        height: 320px;
+    }
+    .hero-photo-caption {
+        white-space: normal;
+        text-align: center;
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-spacing: 3rem;
+    }
+    .nav-menu {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .section-title,
+    .page-title,
+    .report-title {
+        font-size: 2.5rem;
+    }
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .report-main {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 1rem;
+    }
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .container {
+        padding: 0 1.5rem;
+    }
 }
