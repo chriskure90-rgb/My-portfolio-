@@ -1,1 +1,447 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report: Feedback Literacy - Shunki Kure</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-header {
+            background: linear-gradient(135deg, #0a2a3a 0%, #1a4a6a 50%, #007BA7 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        .report-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,191,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(75,156,211,0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .report-header .container { position: relative; z-index: 1; }
+        .report-category {
+            background: rgba(0,191,255,0.15);
+            border: 1px solid rgba(0,191,255,0.4);
+            color: #00bfff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .report-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .report-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        .report-meta {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+            backdrop-filter: blur(10px);
+        }
+        .meta-item { text-align: center; }
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+        .meta-value { font-size: 1rem; font-weight: 600; color: #fff; }
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,191,255,0.1);
+            border: 1px solid rgba(0,191,255,0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease;
+        }
+        .project-badge::before { content: '📊'; font-size: 0.9rem; }
+        .section-heading { position: relative; padding-left: 1rem; }
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #00bfff, #007BA7);
+            border-radius: 2px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-left: 5px solid #00bfff;
+            position: relative;
+        }
+        .process-step {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .process-step:hover {
+            border-color: #4B9CD3;
+            box-shadow: 0 4px 20px rgba(0,123,167,0.1);
+            transform: translateY(-2px);
+        }
+        .step-number { font-size: 1.2rem; width: 44px; height: 44px; }
+
+        /* Learner type cards */
+        .learner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+        .learner-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .learner-card:hover { transform: translateY(-3px); }
+        .learner-card.type-1 { background: #f0f9ff; border-color: #4B9CD3; }
+        .learner-card.type-2 { background: #fff5f5; border-color: #e57373; }
+        .learner-card.type-3 { background: #fff8e1; border-color: #ffb74d; }
+        .learner-card .type-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+        .type-1 .type-label { color: #007BA7; }
+        .type-2 .type-label { color: #c62828; }
+        .type-3 .type-label { color: #e65100; }
+        .learner-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .learner-card p { font-size: 0.9rem; color: #555; margin: 0 0 0.75rem; }
+        .learner-card .intervention {
+            font-size: 0.85rem;
+            font-style: italic;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.7);
+        }
+
+        /* Data architecture */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .data-card {
+            background: #f8fbff;
+            border: 1px solid #e0ecf8;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .data-card h4 {
+            color: #007BA7;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .data-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .data-card ul li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #e8f0f8;
+            font-size: 0.9rem;
+            color: #444;
+        }
+        .data-card ul li:last-child { border-bottom: none; }
+        .data-card ul li strong { color: #1a4a6a; }
+
+        .result-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,123,167,0.15);
+        }
+        .result-number { font-size: 2.8rem; }
+        .report-sidebar .sidebar-section { border-top: 3px solid #007BA7; }
+
+        @media (max-width: 600px) {
+            .data-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Shunki Kure</a>
+            <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <section class="report-header">
+        <div class="container">
+            <div class="project-badge">Adaptive Learning Module — Learning Analytics</div>
+            <span class="report-category">Instructional Design • 2026</span>
+            <h1 class="report-title">Developing Student Feedback Literacy with AI & Learning Analytics</h1>
+            <p class="report-subtitle">An adaptive learning system that transforms how students engage with instructor feedback — combining an AI reflection tool with a learning analytics dashboard to close the gap between receiving feedback and acting on it.</p>
+            <div class="report-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Framework</span>
+                    <span class="meta-value">Nicol & Macfarlane-Dick (2006)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Instructional Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Topic</span>
+                    <span class="meta-value">Feedback Literacy / SRL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="report-content">
+        <div class="container">
+            <div class="report-layout">
+                <article class="report-main">
+
+                    <section class="report-section">
+                        <h2 class="section-heading">The Problem</h2>
+                        <p>
+                            Instructor feedback is one of the most powerful tools in education — but most students never use it properly. Instead of treating feedback as a roadmap for growth, students check their score and move on. The feedback loop is broken before it begins.
+                        </p>
+                        <div class="highlight-box">
+                            <h4>The Gap Between Ideal and Reality</h4>
+                            <p><strong>The Ideal:</strong> Students become "Active Feedback Reviewers" — they decode feedback, plan strategies, and improve their skills (Nicol & Macfarlane-Dick, 2006).</p>
+                            <p style="margin-top: 0.75rem; margin-bottom: 0;"><strong>The Reality:</strong> Feedback is used to justify grades, not for growth. Students ignore it after checking their score. Skill development stalls — there is no "feed-forward."</p>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Theoretical Foundation</h2>
+                        <p>
+                            This project is grounded in Nicol & Macfarlane-Dick's (2006) seven principles of good feedback practice, which frames effective feedback as a self-regulatory process. Rather than treating feedback as teacher-to-student transmission, their model centers the student as an active agent who must interpret, internalize, and act on feedback.
+                        </p>
+                        <p>
+                            Three principles directly informed the design: teachers need to clarify goals and communicate standards; students need structured opportunities to reflect on their learning; and both need data-driven support to close the gap between current performance and desired outcomes.
+                        </p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">The Solution: Two Interlocking Components</h2>
+                        <p>Rather than a single tool, this project proposes a two-component system that addresses both sides of the feedback problem:</p>
+
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>AI Reflection Tool (For Students)</h4>
+                                    <p>An AI-powered reflection space that provides structured self-explanation prompts and active dialogue. Students move from passive "grade checkers" to active planners — guided to interpret their feedback, connect it to their goals, and identify specific improvement strategies. The AI never gives answers; it guides reasoning.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>Integrated Learning Analytics Dashboard (For Teachers)</h4>
+                                    <p>A data dashboard that synthesizes student engagement logs and AI rubric scores into actionable insights. Teachers can instantly spot growth or stagnation, identify specific reflection weaknesses, and prioritize at-risk students who need immediate support — without manually reviewing every submission.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Data Architecture</h2>
+                        <p>The system collects two distinct types of data to build a complete picture of student engagement:</p>
+
+                        <div class="data-grid">
+                            <div class="data-card">
+                                <h4>📋 Engagement Data (Behavioral)</h4>
+                                <ul>
+                                    <li><strong>Feedback Checked:</strong> Binary (Yes/No)</li>
+                                    <li><strong>Time to Access:</strong> Delay after publication</li>
+                                    <li><strong>AI Conversation Turns:</strong> Depth of interaction</li>
+                                    <li><strong>Material Access:</strong> Other class resources</li>
+                                    <li><strong>Link Access:</strong> External support clicks</li>
+                                </ul>
+                            </div>
+                            <div class="data-card">
+                                <h4>🧠 Cognitive Data (AI Rubric Scores)</h4>
+                                <ul>
+                                    <li><strong>Interpreting Score:</strong> Quality of sense-making (1–4)</li>
+                                    <li><strong>Action Plan Score:</strong> Specificity of goal-setting (1–4)</li>
+                                    <li><strong>Mentioning Score:</strong> Resource utilization awareness (1–4)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p>These two data streams are combined into a unified event log — merging LMS logs and AI interactions, applying consistent naming schemas, and assigning session IDs to map continuous learning flows.</p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Adaptive Logic: Three Learner Profiles</h2>
+                        <p>By crossing behavioral and cognitive data, the system identifies three distinct learner types and triggers targeted interventions for each:</p>
+
+                        <div class="learner-grid">
+                            <div class="learner-card type-1">
+                                <div class="type-label">Type 1</div>
+                                <h4>Resourceful Learner</h4>
+                                <p>High engagement, high metacognition. Clicks resources, reflects deeply.</p>
+                                <div class="intervention">→ Acknowledge progress and offer advanced resources.</div>
+                            </div>
+                            <div class="learner-card type-2">
+                                <div class="type-label">Type 2</div>
+                                <h4>"Surface" Checker</h4>
+                                <p>Low engagement, low metacognition. Quick exit, surface-level text.</p>
+                                <div class="intervention">→ Trigger automated nudge to revisit feedback.</div>
+                            </div>
+                            <div class="learner-card type-3">
+                                <div class="type-label">Type 3</div>
+                                <h4>Trial & Error Learner</h4>
+                                <p>Medium engagement, low-medium metacognition. Repeated chats, no resources.</p>
+                                <div class="intervention">→ Provide direct scaffolding to specific class resources.</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Dashboard Capabilities</h2>
+                        <p>The analytics dashboard translates raw data into two types of actionable value:</p>
+
+                        <div class="data-grid">
+                            <div class="data-card">
+                                <h4>🎯 For Teaching Decisions</h4>
+                                <ul>
+                                    <li>Progress tracking across assignments</li>
+                                    <li>AI-pinpointed reflection weaknesses</li>
+                                    <li>Data-driven talking points for 1-on-1s</li>
+                                    <li>Intervention alerts for at-risk students</li>
+                                </ul>
+                            </div>
+                            <div class="data-card">
+                                <h4>🔍 For Skill Analysis</h4>
+                                <ul>
+                                    <li>Behavioral profiling of help-seeking skills</li>
+                                    <li>Root cause analysis beyond low grades</li>
+                                    <li>Tailored counseling dialogue prompts</li>
+                                    <li>Automated workshop recommendations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Why This Matters</h2>
+                        <p>
+                            Most feedback interventions focus on improving the quality of feedback itself. This project takes a different approach: the feedback is already there — the problem is that students don't know how to use it. By combining structured AI reflection with behavioral analytics, this system targets the moment where feedback most often fails: the transition from receiving to acting.
+                        </p>
+                        <p>
+                            The result is a system where students develop genuine feedback literacy — not just by being told to "use feedback," but by being scaffolded through the cognitive process of interpretation, planning, and action in a structured, low-stakes environment.
+                        </p>
+                    </section>
+
+                </article>
+
+                <aside class="report-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Project Details</h3>
+                        <dl class="details-list">
+                            <dt>Target Learner</dt>
+                            <dd>University Students</dd>
+                            <dt>Institution</dt>
+                            <dd>UNC School of Education</dd>
+                            <dt>Role</dt>
+                            <dd>Instructional Designer</dd>
+                        </dl>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Theoretical Frameworks</h3>
+                        <div class="sidebar-tags">
+                            <span>Nicol & Macfarlane-Dick (2006)</span>
+                            <span>Self-Regulated Learning</span>
+                            <span>7 Principles of Feedback</span>
+                            <span>Adaptive Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3>Skills & Tools</h3>
+                        <div class="sidebar-tags">
+                            <span>Learning Analytics</span>
+                            <span>Instructional Design</span>
+                            <span>AI Tutoring</span>
+                            <span>Dashboard Design</span>
+                            <span>Data Architecture</span>
+                            <span>LMS Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section sidebar-cta">
+                        <p>Interested in this project?</p>
+                        <a href="contact.html" class="btn btn-small">Get in Touch</a>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="project-navigation">
+        <div class="container">
+            <a href="portfolio.html" class="nav-center">← Back to All Projects</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Shunki Kure</h3>
+                    <p>Innovating the future of education, one project at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="portfolio.html">Portfolio</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shunki Kure. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
