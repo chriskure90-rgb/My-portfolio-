@@ -345,6 +345,21 @@ img {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    .hero-content { text-align: center; }
+    .hero-buttons { justify-content: center; }
+    .hero-photo-frame img { height: 320px; }
+    .hero-photo-caption {
+        white-space: normal;
+        text-align: center;
+        width: 80%;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
     .hero-content {
         text-align: center;
     }
