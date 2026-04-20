@@ -159,24 +159,54 @@ img {
     min-height: 85vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
-background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
-    padding: 4rem 2rem;
-    color: var(--text-dark);
+    background: linear-gradient(135deg, #0a2a3a 0%, #1a4a6a 60%, #2a6a9a 100%);
+    padding: 4rem 0;
+    color: var(--white);
+}
+
+.hero-bg-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(10, 30, 50, 0.97) 0%,
+        rgba(10, 30, 50, 0.92) 40%,
+        rgba(10, 30, 50, 0.5) 65%,
+        rgba(10, 30, 50, 0.15) 100%
+    );
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
 .hero-content {
-    text-align: center;
-    max-width: 800px;
-    z-index: 10;
+    text-align: left;
 }
 
 .hero-badge {
     display: inline-block;
-   background-color: #00bfff; 
-    color: var(--white);
+    background-color: rgba(0, 191, 255, 0.2);
+    border: 1px solid rgba(0, 191, 255, 0.5);
+    color: #00bfff;
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.9rem;
@@ -186,20 +216,20 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    color: var(--dark);
+    color: var(--white);
     animation: fadeInUp 0.8s ease 0.2s backwards;
+    line-height: 1.2;
 }
 
 .hero-title .highlight {
     color: #00bfff;
-    position: relative;
 }
 
 .hero-description {
-    font-size: 1.3rem;
-    color: var(--text-light);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 2.5rem;
     line-height: 1.8;
     animation: fadeInUp 0.8s ease 0.4s backwards;
@@ -207,10 +237,51 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
 
 .hero-buttons {
     display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+    gap: 1rem;
     flex-wrap: wrap;
     animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--dark);
+}
+
+.hero-photo-frame {
+    position: relative;
+    animation: fadeInUp 0.8s ease 0.3s backwards;
+}
+
+.hero-photo-frame img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 191, 255, 0.3);
+}
+
+.hero-photo-caption {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 191, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 191, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    font-weight: 500;
 }
 
 /* Hero Decorations */
@@ -222,20 +293,21 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
     left: 0;
     pointer-events: none;
     overflow: hidden;
+    z-index: 2;
 }
 
 .decoration-circle {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.15;
+    opacity: 0.08;
 }
 
 .circle-1 {
-    width: 300px;
-    height: 300px;
-    background: var(--primary);
-    top: -100px;
-    right: -50px;
+    width: 400px;
+    height: 400px;
+    background: #00bfff;
+    top: -150px;
+    right: -100px;
 }
 
 .circle-2 {
@@ -249,9 +321,30 @@ background: linear-gradient(135deg, #b3e0ff 0%, #ffffff 100%);
 .circle-3 {
     width: 150px;
     height: 150px;
-    background: var(--secondary);
+    background: var(--white);
     top: 50%;
     right: 10%;
+}
+
+@media (max-width: 900px) {
+    .hero-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-photo-frame img {
+        height: 320px;
+    }
+    .hero-photo-caption {
+        white-space: normal;
+        text-align: center;
+        width: 80%;
+    }
 }
 
 /* ===========================
