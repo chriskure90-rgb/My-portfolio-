@@ -8,6 +8,214 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== PAGE-SPECIFIC ENHANCEMENTS ===== */
+
+        .report-header {
+            background: linear-gradient(135deg, #0a2a3a 0%, #1a4a6a 50%, #007BA7 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .report-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,191,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(75,156,211,0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .report-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .report-category {
+            background: rgba(0,191,255,0.15);
+            border: 1px solid rgba(0,191,255,0.4);
+            color: #00bfff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .report-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .report-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .report-meta {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+            backdrop-filter: blur(10px);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Conference badge */
+        .conference-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,191,255,0.1);
+            border: 1px solid rgba(0,191,255,0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .conference-badge::before {
+            content: '📄';
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced section heading */
+        .section-heading {
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #00bfff, #007BA7);
+            border-radius: 2px;
+        }
+
+        /* Enhanced highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-left: 5px solid #00bfff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::after {
+            content: '⚠';
+            position: absolute;
+            right: 1.5rem;
+            top: 1.5rem;
+            font-size: 2rem;
+            opacity: 0.08;
+        }
+
+        /* Enhanced objectives list */
+        .objectives-list li {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            background: linear-gradient(135deg, #f0f6fa, #fff);
+            border-left: 4px solid #007BA7;
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .objectives-list li:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 15px rgba(0,123,167,0.12);
+        }
+
+        .step-counter {
+            background: linear-gradient(135deg, #007BA7, #4B9CD3);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* Enhanced sidebar */
+        .report-sidebar .sidebar-section {
+            border-top: 3px solid #007BA7;
+        }
+
+        /* CTA button */
+        .paper-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #007BA7, #4B9CD3);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .paper-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,123,167,0.35);
+            color: white;
+        }
+
+        .paper-cta::before {
+            content: '📄';
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -19,6 +227,7 @@
 
     <section class="report-header">
         <div class="container">
+            <div class="conference-badge">Published at SITE 2026 International Conference</div>
             <span class="report-category">Research • 2026</span>
             <h1 class="report-title">Supporting Teacher Learning with Large Language Models Simulated Student Dialogues</h1>
             <p class="report-subtitle">Exploring the potential of LLM-simulated student dialogues for teacher learning in science education.</p>
@@ -55,7 +264,7 @@
                             This research investigates the use of Large Language Models (LLMs) to provide an accessible solution to simulate students' science understanding in peer discussion. These simulations serve as a tool for teachers to identify potential student misconceptions and everyday reasoning, ultimately improving their lesson plans.
                         </p>
                         <div style="margin-top: 1.5rem;">
-                            <a href="files/26_SITE_conference_final_unblind.pdf" target="_blank" class="btn">View Full Paper (PDF)</a>
+                            <a href="files/26_SITE_conference_final_unblind.pdf" target="_blank" class="paper-cta">View Full Paper (PDF)</a>
                         </div>
                     </section>
 
@@ -76,10 +285,22 @@
                         <h2 class="section-heading">Approach & Methodology</h2>
                         <p>The research was structured into four distinct steps:</p>
                         <ul class="objectives-list">
-                            <li><strong>Dataset Creation:</strong> Selected discussion questions from 45 publicly available OpenSciEd lesson plans.</li>
-                            <li><strong>LLM Generation:</strong> Developed prompts for OpenAI's GPT-5 to generate four distinct dialogue types.</li>
-                            <li><strong>Analysis:</strong> Analyzed dialogues for the diversity and sequence of talk moves using process maps.</li>
-                            <li><strong>Teacher Interviews:</strong> Interviewed middle and high school teachers to articulate potential instructional insights.</li>
+                            <li>
+                                <span class="step-counter">1</span>
+                                <span><strong>Dataset Creation:</strong> Selected discussion questions from 45 publicly available OpenSciEd lesson plans.</span>
+                            </li>
+                            <li>
+                                <span class="step-counter">2</span>
+                                <span><strong>LLM Generation:</strong> Developed prompts for OpenAI's GPT-5 to generate four distinct dialogue types.</span>
+                            </li>
+                            <li>
+                                <span class="step-counter">3</span>
+                                <span><strong>Analysis:</strong> Analyzed dialogues for the diversity and sequence of talk moves using process maps.</span>
+                            </li>
+                            <li>
+                                <span class="step-counter">4</span>
+                                <span><strong>Teacher Interviews:</strong> Interviewed middle and high school teachers to articulate potential instructional insights.</span>
+                            </li>
                         </ul>
                     </section>
 
@@ -111,8 +332,13 @@
                     <div class="sidebar-section">
                         <h3>Resources</h3>
                         <ul class="resource-list">
-                            <li><a href="files/26_SITE_conference_final_unblind.pdf" target="_blank">View Full Paper (PDF)</a></li>
+                            <li><a href="files/26_SITE_conference_final_unblind.pdf" target="_blank">📄 View Full Paper (PDF)</a></li>
                         </ul>
+                    </div>
+
+                    <div class="sidebar-section sidebar-cta">
+                        <p>Interested in this research?</p>
+                        <a href="contact.html" class="btn btn-small">Get in Touch</a>
                     </div>
                 </aside>
 
@@ -131,7 +357,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <h3>Shunki Kure</h3>
-                    <p>Building the future, one project at a time.</p>
+                    <p>Innovating the future of education, one project at a time.</p>
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
@@ -141,7 +367,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Shunki Kure. All rights reserved.</p>
+                <p>&copy; 2026 Shunki Kure. All rights reserved.</p>
             </div>
         </div>
     </footer>
