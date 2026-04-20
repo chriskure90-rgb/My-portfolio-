@@ -8,6 +8,151 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-header {
+            background: linear-gradient(135deg, #0a2a3a 0%, #1a4a6a 50%, #007BA7 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        .report-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,191,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(75,156,211,0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .report-header .container { position: relative; z-index: 1; }
+        .report-category {
+            background: rgba(0,191,255,0.15);
+            border: 1px solid rgba(0,191,255,0.4);
+            color: #00bfff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .report-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .report-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        .report-meta {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+            backdrop-filter: blur(10px);
+        }
+        .meta-item { text-align: center; }
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+        .meta-value { font-size: 1rem; font-weight: 600; color: #fff; }
+        .tool-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,191,255,0.1);
+            border: 1px solid rgba(0,191,255,0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease;
+        }
+        .tool-badge::before { content: '🤖'; font-size: 0.9rem; }
+        .section-heading { position: relative; padding-left: 1rem; }
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #00bfff, #007BA7);
+            border-radius: 2px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-left: 5px solid #00bfff;
+        }
+        .process-step {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .process-step:hover {
+            border-color: #4B9CD3;
+            box-shadow: 0 4px 20px rgba(0,123,167,0.1);
+            transform: translateY(-2px);
+        }
+        .step-number { font-size: 1.2rem; width: 44px; height: 44px; }
+        .result-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,123,167,0.15);
+        }
+        .result-number { font-size: 2.8rem; }
+        .live-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        .live-demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,191,255,0.35);
+            color: white;
+        }
+        .live-demo-btn::before { content: '🚀'; }
+        .report-sidebar .sidebar-section { border-top: 3px solid #007BA7; }
+        .report-section ul { list-style: none; margin-left: 0; }
+        .report-section ul li {
+            padding: 0.75rem 1rem;
+            background: #f8fbff;
+            border-radius: 8px;
+            border-left: 3px solid #4B9CD3;
+            margin-bottom: 0.75rem;
+            transition: background 0.2s;
+        }
+        .report-section ul li:hover { background: #eef5fc; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -19,10 +164,10 @@
 
     <section class="report-header">
         <div class="container">
+            <div class="tool-badge">AI-Powered Instructional Tool — Live on Vercel</div>
             <span class="report-category">Instructional Tool • 2026</span>
             <h1 class="report-title">Discuss Ready: Guided Preparation for Classroom Discussion</h1>
             <p class="report-subtitle">A theory-grounded AI tutoring tool that systematically guides international students through four stages of discussion preparation — designed from empirical research and validated through rigorous multi-LLM evaluation.</p>
-            
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Duration</span>
@@ -43,28 +188,20 @@
     <div class="report-content">
         <div class="container">
             <div class="report-layout">
-
                 <article class="report-main">
 
                     <section class="report-section">
                         <h2 class="section-heading">The Problem</h2>
-                        <p>
-                            International and non-traditional students consistently struggle to participate in high-stakes classroom discussions — not because they lack ideas, but because existing tools leave them without structured support. Most preparation is passive: read the material, show up, hope for the best.
-                        </p>
+                        <p>International and non-traditional students consistently struggle to participate in high-stakes classroom discussions — not because they lack ideas, but because existing tools leave them without structured support. Most preparation is passive: read the material, show up, hope for the best.</p>
                         <div class="highlight-box">
                             <h4>Core Insight</h4>
-                            <p>
-                                Research shows that students often have the knowledge but lack the cognitive scaffolding to transform it into a discussion-ready contribution. Without structure, most students stay in the "Passive" or "Active" modes of the ICAP framework — far from the "Constructive" and "Interactive" engagement that meaningful discussion demands (Chi & Wylie, 2014).
-                            </p>
+                            <p>Research shows that students often have the knowledge but lack the cognitive scaffolding to transform it into a discussion-ready contribution. Without structure, most students stay in the "Passive" or "Active" modes of the ICAP framework — far from the "Constructive" and "Interactive" engagement that meaningful discussion demands (Chi & Wylie, 2014).</p>
                         </div>
                     </section>
 
                     <section class="report-section">
                         <h2 class="section-heading">Designing from Research, Not Intuition</h2>
-                        <p>
-                            Every design decision in Discuss Ready traces back to an empirical source. Rather than guessing what students need, I built the four-stage structure directly from the literature:
-                        </p>
-
+                        <p>Every design decision in Discuss Ready traces back to an empirical source. Rather than guessing what students need, I built the four-stage structure directly from the literature:</p>
                         <div class="process-steps">
                             <div class="process-step">
                                 <span class="step-number">1</span>
@@ -92,17 +229,11 @@
 
                     <section class="report-section">
                         <h2 class="section-heading">Systematic AI Evaluation: Choosing the Right Model</h2>
-                        <p>
-                            Building the right instructional experience required more than a good prompt — it required selecting the right AI model. I systematically evaluated five LLMs across five pedagogically-grounded criteria through three rounds of iterative prompt testing.
-                        </p>
-
+                        <p>Building the right instructional experience required more than a good prompt — it required selecting the right AI model. I systematically evaluated five LLMs across five pedagogically-grounded criteria through three rounds of iterative prompt testing.</p>
                         <div class="highlight-box">
                             <h4>Why This Mattered</h4>
-                            <p>
-                                Different models have fundamentally different personalities. A model that scores perfectly on accuracy can still undermine learning if its tone makes students feel judged. I needed a model that was both pedagogically accurate <em>and</em> psychologically safe for non-native English speakers in a high-stakes context.
-                            </p>
+                            <p>Different models have fundamentally different personalities. A model that scores perfectly on accuracy can still undermine learning if its tone makes students feel judged. I needed a model that was both pedagogically accurate <em>and</em> psychologically safe for non-native English speakers in a high-stakes context.</p>
                         </div>
-
                         <div class="results-grid">
                             <div class="result-card">
                                 <span class="result-number">5</span>
@@ -121,35 +252,25 @@
                                 <span class="result-label">Final score for Mistral Large 3 — the selected model</span>
                             </div>
                         </div>
-
-                        <p>
-                            <strong>Mistral Large 3 scored 10/10</strong> — the only model to pass all five criteria. But the reason I chose it went beyond the rubric: Mistral's tone was distinctly encouraging and conversational, written at a CEFR B1 level that made non-native speakers feel supported rather than evaluated. GPT-4o was strict but cold. Llama 4 was accurate but blunt. Mistral guided students toward thinking deeper by asking questions, rather than simply flagging errors.
-                        </p>
+                        <p><strong>Mistral Large 3 scored 10/10</strong> — the only model to pass all five criteria. But the reason I chose it went beyond the rubric: Mistral's tone was distinctly encouraging and conversational, written at a CEFR B1 level that made non-native speakers feel supported rather than evaluated. GPT-4o was strict but cold. Llama 4 was accurate but blunt. Mistral guided students toward thinking deeper by asking questions, rather than simply flagging errors.</p>
                     </section>
 
                     <section class="report-section">
                         <h2 class="section-heading">Iterative Prompt Engineering</h2>
-                        <p>
-                            The prompt didn't emerge fully formed — it went through three significant iterations, each one responding to a real failure mode discovered in testing:
-                        </p>
+                        <p>The prompt didn't emerge fully formed — it went through three significant iterations, each one responding to a real failure mode discovered in testing:</p>
                         <ul>
                             <li><strong>Round 1:</strong> Established the basic 4-stage structure and feedback format. Revealed that without branching logic, the AI moved students forward regardless of response quality.</li>
                             <li><strong>Round 2:</strong> Added a mastery-based progression rule — students could not advance until they hit the maximum score. Revealed this was too strict: students were getting stuck in loops on early stages.</li>
                             <li><strong>Round 3:</strong> Calibrated scoring thresholds (Stages 1 & 2 scored out of 2, Stages 3 & 4 out of 3) and added explicit grounding rules requiring the AI to cite specific sections of the uploaded material. Added CEFR B1 tone constraints and a strict 60-word response limit to keep feedback accessible and concise.</li>
                         </ul>
-                        <p>
-                            Each iteration was tested with calibrated example inputs across all score levels to verify the model's scoring accuracy before moving to live testing.
-                        </p>
+                        <p>Each iteration was tested with calibrated example inputs across all score levels to verify the model's scoring accuracy before moving to live testing.</p>
                     </section>
 
                     <section class="report-section">
                         <h2 class="section-heading">The Output: A Rehearsal Summary</h2>
-                        <p>
-                            After completing all four stages, students receive a personalized Rehearsal Summary — four short, speakable sentences drawn directly from their own responses across the conversation. This isn't AI-generated advice; it's their own thinking, organized into something they can actually say in class.
-                        </p>
-                        <p>
-                            This design decision reflects a core principle from the SToG framework (Kollar, Wecker, & Fischer, 2018): scaffolds should support the structure of participation without prescribing the content. The tool gives students confidence in <em>how</em> to participate — what they say remains entirely their own.
-                        </p>
+                        <p>After completing all four stages, students receive a personalized Rehearsal Summary — four short, speakable sentences drawn directly from their own responses across the conversation. This isn't AI-generated advice; it's their own thinking, organized into something they can actually say in class.</p>
+                        <p>This design decision reflects a core principle from the SToG framework (Kollar, Wecker, & Fischer, 2018): scaffolds should support the structure of participation without prescribing the content. The tool gives students confidence in <em>how</em> to participate — what they say remains entirely their own.</p>
+                        <a href="https://discuss-ready.vercel.app" target="_blank" class="live-demo-btn">Try Discuss Ready Live</a>
                     </section>
 
                 </article>
@@ -166,7 +287,6 @@
                             <dd>Instructional Designer</dd>
                         </dl>
                     </div>
-
                     <div class="sidebar-section">
                         <h3>Theoretical Frameworks</h3>
                         <div class="sidebar-tags">
@@ -177,7 +297,6 @@
                             <span>Script Theory (SToG)</span>
                         </div>
                     </div>
-
                     <div class="sidebar-section">
                         <h3>Skills & Tools</h3>
                         <div class="sidebar-tags">
@@ -190,15 +309,13 @@
                             <span>Figma</span>
                         </div>
                     </div>
-
-                 <div class="sidebar-section">
-    <h3>Resources</h3>
-    <ul class="resource-list">
-        <li><a href="https://discuss-ready.vercel.app" target="_blank">🚀 Try Discuss Ready Live</a></li>
-        <li><a href="files/Discuss_Ready_Summary.pdf" target="_blank">View Project Summary (PDF)</a></li>
-    </ul>
-</div>
-
+                    <div class="sidebar-section">
+                        <h3>Resources</h3>
+                        <ul class="resource-list">
+                            <li><a href="https://discuss-ready.vercel.app" target="_blank">🚀 Try Discuss Ready Live</a></li>
+                            <li><a href="files/Discuss_Ready_Summary.pdf" target="_blank">📄 View Project Summary (PDF)</a></li>
+                        </ul>
+                    </div>
                     <div class="sidebar-section sidebar-cta">
                         <p>Interested in this project?</p>
                         <a href="contact.html" class="btn btn-small">Get in Touch</a>
