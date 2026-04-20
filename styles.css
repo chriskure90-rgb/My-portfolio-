@@ -233,6 +233,7 @@ img {
 .hero-buttons {
     display: flex;
     flex-direction: row;
+    flex-direction: row;
     gap: 1rem;
     flex-wrap: wrap;
     width: auto;
