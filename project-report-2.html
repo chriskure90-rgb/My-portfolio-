@@ -8,6 +8,167 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-header {
+            background: linear-gradient(135deg, #0a2a3a 0%, #1a4a6a 50%, #007BA7 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        .report-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,191,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(75,156,211,0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .report-header .container { position: relative; z-index: 1; }
+        .report-category {
+            background: rgba(0,191,255,0.15);
+            border: 1px solid rgba(0,191,255,0.4);
+            color: #00bfff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .report-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .report-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        .report-meta {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+            backdrop-filter: blur(10px);
+        }
+        .meta-item { text-align: center; }
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+        .meta-value { font-size: 1rem; font-weight: 600; color: #fff; }
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,191,255,0.1);
+            border: 1px solid rgba(0,191,255,0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease;
+        }
+        .project-badge::before { content: '🌍'; font-size: 0.9rem; }
+        .section-heading { position: relative; padding-left: 1rem; }
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #00bfff, #007BA7);
+            border-radius: 2px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-left: 5px solid #00bfff;
+        }
+        .process-step {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .process-step:hover {
+            border-color: #4B9CD3;
+            box-shadow: 0 4px 20px rgba(0,123,167,0.1);
+            transform: translateY(-2px);
+        }
+        .step-number { font-size: 1.2rem; width: 44px; height: 44px; }
+
+        /* Two-loop diagram */
+        .loop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .loop-card {
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .loop-card:hover { transform: translateY(-3px); }
+        .loop-card.task { background: #f0f9ff; border-color: #4B9CD3; }
+        .loop-card.step { background: #f0fff4; border-color: #48bb78; }
+        .loop-card .loop-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+        .task .loop-label { color: #007BA7; }
+        .step .loop-label { color: #276749; }
+        .loop-card h4 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+        .loop-card p { font-size: 0.9rem; color: #555; margin: 0; }
+
+        .report-sidebar .sidebar-section { border-top: 3px solid #007BA7; }
+        .paper-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #007BA7, #4B9CD3);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .paper-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,123,167,0.35);
+            color: white;
+        }
+        .paper-cta::before { content: '📄'; }
+
+        @media (max-width: 600px) {
+            .loop-grid { grid-template-columns: 1fr; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -19,10 +180,10 @@
 
     <section class="report-header">
         <div class="container">
-            <span class="report-category">Instructional Design • 2024</span>
+            <div class="project-badge">Personalized Learning — NGSS Aligned</div>
+            <span class="report-category">Instructional Design • 2025</span>
             <h1 class="report-title">Personalized Learning for Scientific Discussion</h1>
-            <p class="report-subtitle">An adaptive learning design aimed at helping high school students refine scientific misconceptions about climate change.</p>
-            
+            <p class="report-subtitle">An adaptive learning design that uses peer discussion and targeted LLM feedback to help high school students correct climate change misconceptions — and rebuild their confidence in science.</p>
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Duration</span>
@@ -34,7 +195,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Topic</span>
-                    <span class="meta-value">Science Education</span>
+                    <span class="meta-value">Science Education / NGSS</span>
                 </div>
             </div>
         </div>
@@ -43,45 +204,54 @@
     <div class="report-content">
         <div class="container">
             <div class="report-layout">
-                
                 <article class="report-main">
-                    
-                    <section class="report-section">
-                        <h2 class="section-heading">Project Overview</h2>
-                        <p>
-                            This project is aimed at high school students to refine their scientific misconceptions through discussion with their classmates. The module focuses specifically on the topic of climate change, aligned with NGSS standards.
-                        </p>
-                        <p>
-                            Grounded in social constructivism theory, the course leverages peer and AI-mediated dialogue so that students can co-construct understanding, refine misconceptions, and elaborate on existing knowledge.
-                        </p>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="files/Collaborative_science.pdf" target="_blank" class="btn">View Slide Deck (PDF)</a>
-                        </div>
-                    </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Problem Statement & Context</h2>
+                        <h2 class="section-heading">The Problem I Identified</h2>
                         <p>
-                            According to National Center for Education Statistics data, the average science GPA of U.S. high school students is 2.70, which is the second lowest among all subjects. 
+                            U.S. high school students have the second-lowest GPA in science among all subjects (NCES data). But the deeper issue isn't performance — it's identity. Students who struggle with abstract concepts and complex language start believing they're simply "not a science person." Once that belief sets in, STEM career paths close off before students have a real chance to explore them.
                         </p>
                         <div class="highlight-box">
-                            <h4>Key Challenge</h4>
+                            <h4>The Root Cause</h4>
                             <p>
-                                Science requires understanding abstract concepts and complex language. The difficulty makes high school students lose their interest in science, causing them to believe they are "not good at science," which ultimately restricts their future career options in STEM fields.
+                                Science misconceptions don't get corrected through lecture. They get corrected through dialogue — when students are forced to articulate their ideas, hear alternatives, and revise their thinking. Most classrooms don't create the right conditions for that to happen consistently.
                             </p>
                         </div>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Goals & Objectives</h2>
+                        <h2 class="section-heading">How I Approached the Solution</h2>
                         <p>
-                            The project is designed to deepen students' understanding of science concepts in the short term, and encourage them to pursue science studies as a long-term goal. 
+                            I designed a two-loop adaptive system grounded in social constructivism — each loop targeting a different level of the learning problem:
                         </p>
-                        <ul class="objectives-list">
-                            <li><strong>Objective 1:</strong> Make students' existing ideas and misconceptions visible and organized using a Driving Question Board (DQB).</li>
-                            <li><strong>Objective 2:</strong> Facilitate heterogeneous group discussions where students can explain and question ideas, allowing lower-understanding students to get accessible help.</li>
-                            <li><strong>Objective 3:</strong> Provide quick, targeted feedback on student explanations using LLMs to correct misconceptions.</li>
-                        </ul>
+                        <div class="loop-grid">
+                            <div class="loop-card task">
+                                <div class="loop-label">Task Loop</div>
+                                <h4>Peer Discussion</h4>
+                                <p>Heterogeneous group discussions using a Driving Question Board (DQB) to surface and organize misconceptions. Lower-understanding students get accessible peer support; higher-understanding students deepen their knowledge by explaining.</p>
+                            </div>
+                            <div class="loop-card step">
+                                <div class="loop-label">Step Loop</div>
+                                <h4>LLM Feedback</h4>
+                                <p>Targeted, real-time AI feedback on individual student explanations. Rather than broad corrections, the LLM responds to the specific misconception in each student's own words — making the feedback feel relevant and actionable.</p>
+                            </div>
+                        </div>
+                        <p>
+                            The key design insight was that peer discussion and AI feedback work at different levels — discussion reveals what students believe, AI feedback corrects it precisely. Neither works as well alone.
+                        </p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">What This Demonstrates</h2>
+                        <p>
+                            This project shows that I can map a well-documented educational problem — science disengagement and misconception persistence — to a two-level adaptive architecture. The Task Loop / Step Loop framework is borrowed from adaptive learning systems design, applied here to a collaborative science context.
+                        </p>
+                        <p>
+                            The result is a module that addresses both the cognitive problem (misconceptions) and the motivational one (identity) — by giving students a structured space to think out loud, get corrected gently, and experience science as something they can actually do.
+                        </p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="files/Collaborative_science.pdf" target="_blank" class="paper-cta">View Slide Deck (PDF)</a>
+                        </div>
                     </section>
 
                 </article>
@@ -96,25 +266,37 @@
                             <dd>UNC School of Education</dd>
                             <dt>Target Learner</dt>
                             <dd>High School Students</dd>
-                            <dt>Your Role</dt>
+                            <dt>Role</dt>
                             <dd>Instructional Designer</dd>
                         </dl>
                     </div>
-
+                    <div class="sidebar-section">
+                        <h3>Theoretical Frameworks</h3>
+                        <div class="sidebar-tags">
+                            <span>Social Constructivism</span>
+                            <span>Task Loop Adaptivity</span>
+                            <span>Step Loop Adaptivity</span>
+                            <span>NGSS Standards</span>
+                        </div>
+                    </div>
                     <div class="sidebar-section">
                         <h3>Skills & Tools</h3>
                         <div class="sidebar-tags">
                             <span>Instructional Design</span>
                             <span>Adaptive Learning</span>
                             <span>LLM Feedback Tool</span>
+                            <span>Driving Question Board</span>
                         </div>
                     </div>
-
                     <div class="sidebar-section">
                         <h3>Resources</h3>
                         <ul class="resource-list">
-                            <li><a href="files/Collaborative_science.pdf" target="_blank">View Slide Deck (PDF)</a></li>
+                            <li><a href="files/Collaborative_science.pdf" target="_blank">📄 View Slide Deck (PDF)</a></li>
                         </ul>
+                    </div>
+                    <div class="sidebar-section sidebar-cta">
+                        <p>Interested in this project?</p>
+                        <a href="contact.html" class="btn btn-small">Get in Touch</a>
                     </div>
                 </aside>
 
@@ -133,7 +315,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <h3>Shunki Kure</h3>
-                    <p>Building the future, one project at a time.</p>
+                    <p>Innovating the future of education, one project at a time.</p>
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
@@ -143,7 +325,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Shunki Kure. All rights reserved.</p>
+                <p>&copy; 2026 Shunki Kure. All rights reserved.</p>
             </div>
         </div>
     </footer>
