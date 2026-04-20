@@ -43,9 +43,35 @@
             font-size: 1.15rem;
             color: rgba(255,255,255,0.8);
             max-width: 750px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 2rem;
             animation: fadeInUp 0.8s ease 0.4s backwards;
         }
+
+        /* Live Demo Button — Hero */
+        .hero-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ffffff;
+            color: #007BA7;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.25);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.5s backwards;
+        }
+        .hero-demo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            color: #007BA7;
+        }
+        .hero-demo-btn::before { content: '🚀'; font-size: 1.1rem; }
+
         .report-meta {
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.1);
@@ -55,7 +81,7 @@
             justify-content: center;
             gap: 4rem;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
+            animation: fadeInUp 0.8s ease 0.7s backwards;
             backdrop-filter: blur(10px);
         }
         .meta-item { text-align: center; }
@@ -67,6 +93,7 @@
             margin-bottom: 0.4rem;
         }
         .meta-value { font-size: 1rem; font-weight: 600; color: #fff; }
+
         .tool-badge {
             display: inline-flex;
             align-items: center;
@@ -81,6 +108,7 @@
             animation: fadeInDown 0.6s ease;
         }
         .tool-badge::before { content: '🤖'; font-size: 0.9rem; }
+
         .section-heading { position: relative; padding-left: 1rem; }
         .section-heading::before {
             content: '';
@@ -164,10 +192,13 @@
 
     <section class="report-header">
         <div class="container">
-            <div class="tool-badge">AI-Powered Instructional Tool — Live on Vercel</div>
+            <div class="tool-badge">AI-Powered Instructional Tool</div>
             <span class="report-category">Instructional Tool • 2026</span>
             <h1 class="report-title">Discuss Ready: Guided Preparation for Classroom Discussion</h1>
             <p class="report-subtitle">A theory-grounded AI tutoring tool that systematically guides international students through four stages of discussion preparation — designed from empirical research and validated through rigorous multi-LLM evaluation.</p>
+
+            <a href="https://discuss-ready.vercel.app" target="_blank" class="hero-demo-btn">Try Discuss Ready Live</a>
+
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Duration</span>
