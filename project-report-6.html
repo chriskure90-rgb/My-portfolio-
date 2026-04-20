@@ -8,6 +8,131 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-header {
+            background: linear-gradient(135deg, #0a2a3a 0%, #1a4a6a 50%, #007BA7 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+        .report-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0,191,255,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(75,156,211,0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .report-header .container { position: relative; z-index: 1; }
+        .report-category {
+            background: rgba(0,191,255,0.15);
+            border: 1px solid rgba(0,191,255,0.4);
+            color: #00bfff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .report-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .report-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+        .report-meta {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+            backdrop-filter: blur(10px);
+        }
+        .meta-item { text-align: center; }
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 0.4rem;
+        }
+        .meta-value { font-size: 1rem; font-weight: 600; color: #fff; }
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,191,255,0.1);
+            border: 1px solid rgba(0,191,255,0.3);
+            color: rgba(255,255,255,0.9);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease;
+        }
+        .project-badge::before { content: '🔍'; font-size: 0.9rem; }
+        .section-heading { position: relative; padding-left: 1rem; }
+        .section-heading::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #00bfff, #007BA7);
+            border-radius: 2px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-left: 5px solid #00bfff;
+        }
+        .process-step {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .process-step:hover {
+            border-color: #4B9CD3;
+            box-shadow: 0 4px 20px rgba(0,123,167,0.1);
+            transform: translateY(-2px);
+        }
+        .step-number { font-size: 1.2rem; width: 44px; height: 44px; }
+        .result-card { transition: transform 0.2s, box-shadow 0.2s; }
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,123,167,0.15);
+        }
+        .result-number { font-size: 2.8rem; }
+        .report-sidebar .sidebar-section { border-top: 3px solid #007BA7; }
+        .report-section ul { list-style: none; margin-left: 0; }
+        .report-section ul li {
+            padding: 0.75rem 1rem;
+            background: #f8fbff;
+            border-radius: 8px;
+            border-left: 3px solid #4B9CD3;
+            margin-bottom: 0.75rem;
+            transition: background 0.2s;
+        }
+        .report-section ul li:hover { background: #eef5fc; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -19,10 +144,10 @@
 
     <section class="report-header">
         <div class="container">
+            <div class="project-badge">Full-Cycle UX Research — Ecosystem to Evidence</div>
             <span class="report-category">UX Research • 2026</span>
             <h1 class="report-title">Usability & UX Research: Kreebo Reading App</h1>
             <p class="report-subtitle">A full-cycle UX investigation that combined ecosystem mapping, usability testing, and WCAG auditing to reveal how one hidden accessibility failure was silently breaking the entire user experience.</p>
-            
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Duration</span>
@@ -43,7 +168,6 @@
     <div class="report-content">
         <div class="container">
             <div class="report-layout">
-
                 <article class="report-main">
 
                     <section class="report-section">
@@ -59,54 +183,49 @@
                     <section class="report-section">
                         <h2 class="section-heading">My Approach</h2>
                         <p>
-                            Rather than jumping straight into user testing, I started by understanding the ecosystem. I mapped eight stakeholder groups — Teachers, Students, Parents, School Administrators, Curriculum Developers, Librarians, Product Developers, and a Data Security body — and traced how their needs and constraints interact.
+                            Rather than jumping straight into user testing, I started by understanding the ecosystem. I mapped eight stakeholder groups and traced how their needs and constraints interact.
                         </p>
-
                         <div class="highlight-box">
                             <h4>Key Insight from Ecosystem Mapping</h4>
                             <p>
                                 Two structural tensions surfaced immediately: Teachers needed personalized assignments, but the app's monolingual design excluded bilingual families. And School Administrators needed content consistency, but the AI's generative nature made that impossible to guarantee. These weren't user complaints — they were design-level contradictions embedded in the product architecture.
                             </p>
                         </div>
-
                         <p>
-                            From there, I built a learner journey map to pinpoint exactly where in the experience these tensions would surface — then ran usability testing with four parents to confirm it with real behavior.
+                            From there, I built a learner journey map to pinpoint where tensions would surface — then ran usability testing with four parents to confirm it with real behavior.
                         </p>
                     </section>
 
                     <section class="report-section">
                         <h2 class="section-heading">What I Found</h2>
-                        <p>
-                            Using Nielsen's Heuristics as my diagnostic framework, I identified five friction points. But the most important insight wasn't about any single finding — it was about the <em>pattern</em> connecting them.
-                        </p>
-
+                        <p>Using Nielsen's Heuristics as my diagnostic framework, I identified four key findings — but the most important insight was the <em>pattern</em> connecting them:</p>
                         <div class="process-steps">
                             <div class="process-step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
                                     <h4>The System Was Silent When It Broke</h4>
-                                    <p>When the microphone failed during story creation, the app showed nothing — no error, no guidance. All 4 participants were stranded. This wasn't just a UX annoyance; it was a failure of Heuristic 1 (Visibility of System Status) that made the product's most creative feature completely inaccessible.</p>
+                                    <p>When the microphone failed, the app showed nothing. All 4 participants were stranded — a failure of Heuristic 1 that made the product's most creative feature completely inaccessible.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <span class="step-number">2</span>
                                 <div class="step-content">
                                     <h4>The AI Was Doing Too Much, Too Fast</h4>
-                                    <p>The story generation phase asked users an excessive number of questions in sequence. 3 of 4 participants disengaged before finishing. The AI's flexibility became a burden — violating Heuristic 7 (Flexibility and Efficiency of Use) by demanding too much from users with no shortcut.</p>
+                                    <p>Excessive questions during story generation caused 3 of 4 participants to disengage. The AI's flexibility became a burden — no shortcut, no escape.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <span class="step-number">3</span>
                                 <div class="step-content">
-                                    <h4>A Mandatory Task Was Working Against the Product's Own Goals</h4>
-                                    <p>After creating a story, users were required to write an English summary — a task participants described as too challenging for children. This generated the highest proportion of negative sentiment in the entire study, turning a moment of accomplishment into a frustrating obligation.</p>
+                                    <h4>A Mandatory Task Undermined the Core Experience</h4>
+                                    <p>A required post-story English summary — deemed too hard for children — generated the highest negative sentiment in the study. A moment of accomplishment became a frustrating obligation.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <span class="step-number">4</span>
                                 <div class="step-content">
-                                    <h4>The Reading Experience Was a Clear Success</h4>
-                                    <p>The core reading phase produced 27 positive codes and zero negative codes — the strongest performance of any task phase. This contrast made the surrounding friction points even more significant: the product works when it lets users read, and struggles when it asks them to produce.</p>
+                                    <h4>The Reading Phase Was a Clear Win</h4>
+                                    <p>27 positive codes, zero negatives. The contrast proved the product works — just not around the reading experience itself.</p>
                                 </div>
                             </div>
                         </div>
@@ -114,17 +233,13 @@
 
                     <section class="report-section">
                         <h2 class="section-heading">The Insight That Tied It Together</h2>
-                        <p>
-                            The WCAG 2.2 accessibility audit revealed a critical failure in WCAG 3.3.1 (Error Identification): the app relied entirely on visual cues with no text-based error descriptions or ARIA labels.
-                        </p>
-
+                        <p>The WCAG 2.2 audit revealed a critical failure in WCAG 3.3.1: no text-based error descriptions, no ARIA labels — just visual cues.</p>
                         <div class="highlight-box">
                             <h4>Triangulation Moment</h4>
                             <p>
-                                This single accessibility failure directly explained the microphone crisis. The system wasn't just bad UX — it was technically incapable of communicating errors to users. The qualitative behavior (100% of participants stranded), the quantitative data (10 "Confused" codes during story generation), and the accessibility audit all pointed to the same root cause. That's the value of triangulation: it turns observations into evidence.
+                                This single accessibility failure directly explained the microphone crisis. Qualitative behavior (100% stranded), quantitative data (10 "Confused" codes), and the audit all pointed to the same root cause. That's the value of triangulation: it turns observations into evidence.
                             </p>
                         </div>
-
                         <div class="results-grid">
                             <div class="result-card">
                                 <span class="result-number">27</span>
@@ -146,14 +261,11 @@
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">What I Recommended — and Why It Matters</h2>
-                        <p>
-                            Evidence without direction isn't useful. I translated the findings into three prioritized recommendations:
-                        </p>
+                        <h2 class="section-heading">What I Recommended</h2>
                         <ul>
-                            <li><strong>Fix error communication first.</strong> Adding text-based error messages and ARIA labels resolves both the accessibility failure and the microphone crisis in one move — the highest-leverage fix available.</li>
-                            <li><strong>Reduce AI friction with defaults.</strong> Introducing "Quick Generate" templates lets users bypass the exhausting prompt sequence without removing flexibility for those who want it.</li>
-                            <li><strong>Rethink the Summary Task.</strong> Replace the mandatory high-stakes writing task with a lower-friction comprehension check — like a simple multiple choice question — that preserves the learning goal without punishing users for completing a story.</li>
+                            <li><strong>Fix error communication first.</strong> Text-based error messages + ARIA labels resolves the accessibility failure and the mic crisis in one move — the highest-leverage fix available.</li>
+                            <li><strong>Reduce AI friction with defaults.</strong> "Quick Generate" templates let users bypass the prompt sequence without removing flexibility.</li>
+                            <li><strong>Rethink the Summary Task.</strong> Replace the mandatory writing task with a simple comprehension check — preserving the learning goal without punishing users for finishing a story.</li>
                         </ul>
                     </section>
 
@@ -173,7 +285,6 @@
                             <dd>UX Researcher</dd>
                         </dl>
                     </div>
-
                     <div class="sidebar-section">
                         <h3>Methods Used</h3>
                         <div class="sidebar-tags">
@@ -186,7 +297,6 @@
                             <span>Triangulation</span>
                         </div>
                     </div>
-
                     <div class="sidebar-section sidebar-cta">
                         <p>Interested in this research?</p>
                         <a href="contact.html" class="btn btn-small">Get in Touch</a>
