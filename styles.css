@@ -1538,3 +1538,9 @@ section {
         padding: 0 1.5rem;
     }
 }
+
+.portfolio-image img,
+.project-preview-image img {
+    object-fit: contain;
+    background-color: #ffffff;
+}
