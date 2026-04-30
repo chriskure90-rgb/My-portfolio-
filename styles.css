@@ -1544,3 +1544,28 @@ section {
     object-fit: contain;
     background-color: #ffffff;
 }
+
+/* ===========================
+   IMAGE DISPLAY FIX (Final)
+   =========================== */
+
+/* 1. Container: Remove gradients and set a white background */
+.project-preview-image,
+.portfolio-image {
+    height: 250px !important;
+    background: #ffffff !important; 
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+/* 2. Image: Ensure the full content is visible (contain) */
+.project-preview-image img,
+.portfolio-image img,
+.card-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; 
+    padding: 15px !important; /* Prevents text from touching the edges */
+}
