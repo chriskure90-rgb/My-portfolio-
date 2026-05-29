@@ -233,7 +233,6 @@ img {
 .hero-buttons {
     display: flex;
     flex-direction: row;
-    flex-direction: row;
     gap: 1rem;
     flex-wrap: wrap;
     width: auto;
@@ -1186,21 +1185,35 @@ section {
     margin: 2rem 0;
 }
 
+/* ─── FIX: result-card clipping (e.g. "10/10") ─── */
 .result-card {
     background: linear-gradient(135deg, var(--frosted-mint), var(--white));
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
     border: 2px solid var(--primary);
+    overflow: hidden;     /* prevent content bleeding outside the card */
+    min-width: 0;         /* allow card to shrink inside CSS Grid */
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.result-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,123,167,0.15);
+}
+
+/* ─── FIX: scale font down for longer values like "10/10" ─── */
 .result-number {
     display: block;
     font-family: var(--font-headline);
-    font-size: 2.5rem;
+    font-size: clamp(1.4rem, 3.5vw, 2.5rem); /* was fixed 2.5rem — now fluid */
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 0.5rem;
+    word-break: break-word;    /* wrap if absolutely necessary */
+    overflow-wrap: break-word; /* modern equivalent */
+    white-space: normal;       /* never force single-line */
+    line-height: 1.15;
 }
 
 .result-label {
@@ -1518,6 +1531,10 @@ section {
     .report-main {
         padding: 2rem 1.5rem;
     }
+    /* Stack result cards vertically on small screens */
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1537,7 +1554,14 @@ section {
     .container {
         padding: 0 1.5rem;
     }
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
+/* ===========================
+   IMAGE DISPLAY FIX
+   =========================== */
 
 .portfolio-image img,
 .project-preview-image img {
@@ -1545,11 +1569,6 @@ section {
     background-color: #ffffff;
 }
 
-/* ===========================
-   IMAGE DISPLAY FIX (Final)
-   =========================== */
-
-/* 1. Container: Remove gradients and set a white background */
 .project-preview-image,
 .portfolio-image {
     height: 250px !important;
@@ -1560,12 +1579,11 @@ section {
     overflow: hidden !important;
 }
 
-/* 2. Image: Ensure the full content is visible (contain) */
 .project-preview-image img,
 .portfolio-image img,
 .card-img {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important; 
-    padding: 15px !important; /* Prevents text from touching the edges */
+    padding: 15px !important;
 }
