@@ -229,6 +229,47 @@
             margin: 0;
             line-height: 1.55;
         }
+        .prompt-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: transparent;
+            border: 1.5px solid #007BA7;
+            color: #007BA7;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 0.5rem;
+        }
+        .prompt-toggle-btn:hover {
+            background: rgba(0,123,167,0.06);
+            border-color: #00bfff;
+            color: #00bfff;
+        }
+        .prompt-toggle-btn .btn-arrow {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-style: normal;
+        }
+        .prompt-toggle-btn.open .btn-arrow {
+            transform: rotate(180deg);
+        }
+        .prompt-collapsible {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
+            margin-top: 0;
+        }
+        .prompt-collapsible.open {
+            max-height: 3000px;
+            opacity: 1;
+            margin-top: 1.25rem;
+        }
         .prompt-block-wrapper {
             position: relative;
         }
@@ -439,6 +480,11 @@
                             </div>
                         </div>
 
+                        <button class="prompt-toggle-btn" id="toggleBtn" onclick="togglePrompt()">
+                            View full system prompt <i class="btn-arrow">▾</i>
+                        </button>
+
+                        <div class="prompt-collapsible" id="promptCollapsible">
                         <div class="prompt-block-wrapper">
                             <span class="prompt-block-label">System Prompt — Pre-Class Prep Stage</span>
                             <button class="prompt-copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
@@ -505,6 +551,7 @@ Labels: My Summary:, My Connection:, My Opinion:, Counterargument to Consider: (
 Respond EXACTLY with:
 "Welcome! Let's prepare for your class together. We'll work through 4 stages. First you share your idea, then I'll give feedback based on the material to help you improve. Let's start with Stage 1 — Self-Explanation. What are the main points of the preparation material? Please summarise them in your own words."</pre>
                         </div>
+                        </div><!-- /.prompt-collapsible -->
                     </section>
                     <!-- ═══════════════════════════════════════════════ -->
 
@@ -595,6 +642,17 @@ Respond EXACTLY with:
     </footer>
 
     <script>
+        function togglePrompt() {
+            const panel = document.getElementById('promptCollapsible');
+            const btn   = document.getElementById('toggleBtn');
+            const isOpen = panel.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+            btn.querySelector('.btn-arrow').textContent = isOpen ? '▴' : '▾';
+            btn.childNodes[0].textContent = isOpen ? 'Hide full system prompt ' : 'View full system prompt ';
+            if (isOpen) {
+                setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+            }
+        }
         function copyPrompt() {
             const text = document.getElementById('promptText').innerText;
             navigator.clipboard.writeText(text).then(() => {
