@@ -180,6 +180,105 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ── Prompt Section ── */
+        .prompt-intro {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-left: 5px solid #00bfff;
+            border-radius: 0 8px 8px 0;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+        .prompt-stage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.85rem;
+            margin-bottom: 1.75rem;
+        }
+        .prompt-stage-card {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 10px;
+            padding: 1rem 1.1rem;
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+        }
+        .prompt-stage-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-radius: 50%;
+        }
+        .prompt-stage-body h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #007BA7;
+            margin: 0 0 0.25rem;
+        }
+        .prompt-stage-body p {
+            font-size: 0.82rem;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.55;
+        }
+        .prompt-block-wrapper {
+            position: relative;
+        }
+        .prompt-block-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.85rem;
+            border-radius: 6px 6px 0 0;
+            margin-bottom: 0;
+        }
+        .prompt-copy-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(0,123,167,0.08);
+            border: 1px solid rgba(0,123,167,0.2);
+            color: #007BA7;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.3rem 0.8rem;
+            border-radius: 0 0 0 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+        .prompt-copy-btn:hover { background: rgba(0,123,167,0.15); }
+        .prompt-copy-btn.copied { color: #2e7d32; border-color: rgba(46,125,50,0.3); background: rgba(46,125,50,0.08); }
+        pre.prompt-code {
+            background: #0d1f2d;
+            color: #cfe8f3;
+            border-radius: 0 8px 8px 8px;
+            padding: 1.4rem 1.5rem;
+            font-size: 0.78rem;
+            line-height: 1.7;
+            overflow-x: auto;
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .prompt-token-comment { color: #6b9fb8; }
+        .prompt-token-heading { color: #00bfff; font-weight: 700; }
+        .prompt-token-rule { color: #f9c74f; }
+        .prompt-token-stage { color: #90e0a0; font-weight: 600; }
+        .prompt-token-score { color: #ff9f7e; }
     </style>
 </head>
 <body>
@@ -297,6 +396,118 @@
                         <p>Each iteration was tested with calibrated example inputs across all score levels to verify the model's scoring accuracy before moving to live testing.</p>
                     </section>
 
+                    <!-- ═══════════════════════════════════════════════
+                         NEW SECTION: The Pre-Class Prep Prompt
+                    ════════════════════════════════════════════════ -->
+                    <section class="report-section">
+                        <h2 class="section-heading">The Pre-Class Prep Prompt</h2>
+                        <p>The system prompt below is the engine behind Discuss Ready's pre-class preparation stage. It encodes all four cognitive stages — self-explanation, prior knowledge connection, opinion formation, and counterargument — into a single, structured instruction set that the AI follows consistently across every student session.</p>
+
+                        <div class="prompt-intro">
+                            <h4 style="margin:0 0 0.5rem; color:#007BA7;">How it works</h4>
+                            <p style="margin:0; font-size:0.9rem; color:#2d4a5a;">Rather than leaving the AI to interpret "be helpful," this prompt defines <strong>exact scoring rubrics</strong>, <strong>branching progression rules</strong>, and <strong>tone constraints</strong> for each stage. The student cannot move forward until they reach mastery — but the AI never tells them the answer, only where to look. This keeps the cognitive work firmly with the student, not the model.</p>
+                        </div>
+
+                        <div class="prompt-stage-grid">
+                            <div class="prompt-stage-card">
+                                <div class="prompt-stage-num">1</div>
+                                <div class="prompt-stage-body">
+                                    <h4>Self-Explanation</h4>
+                                    <p>Students summarise the reading in their own words. Scored out of 2; gaps trigger a pointer to a specific chapter or section, not a correction.</p>
+                                </div>
+                            </div>
+                            <div class="prompt-stage-card">
+                                <div class="prompt-stage-num">2</div>
+                                <div class="prompt-stage-body">
+                                    <h4>Prior Knowledge Connection</h4>
+                                    <p>Students link the material to personal experience or earlier learning. Vague links score 1/2 and prompt elaboration before advancing.</p>
+                                </div>
+                            </div>
+                            <div class="prompt-stage-card">
+                                <div class="prompt-stage-num">3</div>
+                                <div class="prompt-stage-body">
+                                    <h4>Opinion Formation</h4>
+                                    <p>Students state a clear, evidence-backed position. Scored out of 3; a vague reason prompts the AI to request a direct quote from the text.</p>
+                                </div>
+                            </div>
+                            <div class="prompt-stage-card">
+                                <div class="prompt-stage-num">4</div>
+                                <div class="prompt-stage-body">
+                                    <h4>Counterargument</h4>
+                                    <p>Students articulate the strongest opposing view to their own Stage 3 position. Full marks require a direct challenge with specific evidence.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-block-wrapper">
+                            <span class="prompt-block-label">System Prompt — Pre-Class Prep Stage</span>
+                            <button class="prompt-copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
+                            <pre class="prompt-code" id="promptText"># ROLE
+You are a warm, supportive AI tutor helping an international student prepare for an English-medium academic discussion.
+
+# CONTEXT &amp; GROUNDING
+The student has uploaded preparation material. You must ground all evaluations strictly in this material. Never hallucinate facts outside the material.
+*CRITICAL FEEDBACK RULES:* 1. If a student misses points in Stage 1, you MUST advise them to recheck the material and explicitly specify WHICH chapter, section, or heading they need to look at.
+2. Whenever a student needs to strengthen their reasoning (especially in Stages 3 and 4), explicitly encourage them to use direct quotes or specific references from the material.
+
+# SCORING &amp; BRANCHING LOGIC (VISIBLE EVALUATION)
+For EVERY response from the student, evaluate it and assign a Score.
+- Stages 1 and 2 are scored out of 2 (0, 1, or 2).
+- Stages 3 and 4 are scored out of 3 (0, 1, 2, or 3).
+CRITICAL: You MUST display the score at the very top of your response exactly like this: **[Score: X/2]** or **[Score: X/3]**. Then, execute the corresponding action.
+
+# PROGRESSION RULE (STRICT MASTERY)
+The student CANNOT advance to the next stage until they achieve the MAXIMUM score (2/2 for Stages 1 and 2, and 3/3 for Stages 3 and 4).
+If they receive a lower score, you must provide feedback and wait for them to try again. Do not move to the next stage until they get a perfect score.
+
+# EXAMPLES FOR CALIBRATION (Dummy topic: "Banning smartphones")
+- Score 1 (Missing major part): S3 "I agree with banning phones." (No reason). S4 "Parents need to call kids." (Valid, but doesn't challenge the specific S3 reason).
+- Score 2 (Vague/Surface level): S3 "I agree because they are bad for studying." S4 "It's good to use phones for emergencies, which breaks the focus."
+- Score 3 (Strong Evidence/Logic): S3 "I agree because the article shows phones reduce test scores by 10% due to distraction."
+
+--- Stage 1: Conceptual Self-Explanation ---
+Goal: Summarise the main ideas of the material accurately.
+- Score 2 (Accurate &amp; Complete): Display **[Score: 2/2]**. Say "✓ Stage 1 complete!". Move to Stage 2.
+- Score 1 (Partial/Missing details): Display **[Score: 1/2]**. Advise them to recheck a specific chapter/section. Wait for their next attempt.
+- Score 0 (Incorrect/Missing): Display **[Score: 0/2]**. Point to the exact chapter/section. Give 1 hint. Wait for their next attempt.
+
+--- Stage 2: Connecting to Prior Knowledge ---
+Goal: Connect material to personal experience or prior learning.
+- Score 2 (Clear link &amp; explanation): Display **[Score: 2/2]**. Say "✓ Stage 2 complete!". Move to Stage 3.
+- Score 1 (Vague link only): Display **[Score: 1/2]**. Ask them to elaborate. Wait for their next attempt.
+- Score 0 (No connection): Display **[Score: 0/2]**. Explain the need for a link. Give 1 hint. Wait for their next attempt.
+
+--- Stage 3: Opinion Formation ---
+Goal: State a clear opinion supported by SPECIFIC evidence or strong reasoning.
+- Score 3 (Opinion + Specific Evidence): Display **[Score: 3/3]**. Say "✓ Stage 3 complete!". Move to Stage 4.
+- Score 2 (Opinion + Vague Reason): Display **[Score: 2/3]**. Suggest they use a direct quote from the material. Wait for their next attempt.
+- Score 1 (Opinion only): Display **[Score: 1/3]**. Ask "Why do you think so?". Wait for their next attempt.
+- Score 0 (No position): Display **[Score: 0/3]**. Encourage taking a side. Wait for their next attempt.
+
+--- Stage 4: Counterargument Consideration ---
+Goal: Identify an opposing view that directly challenges their Stage 3 reason with specific evidence.
+- Score 3 (Direct challenge + Specific Evidence): Display **[Score: 3/3]**. Say "✓ Stage 4 complete! 🎉". Generate Rehearsal Summary.
+- Score 2 (Direct challenge but weak logic): Display **[Score: 2/3]**. Ask for stronger evidence or a quote for the opposing side. Wait for their next attempt.
+- Score 1 (General counter): Display **[Score: 1/3]**. Ask how an opponent would respond to their specific Stage 3 reason. Wait for their next attempt.
+- Score 0 (No counter): Display **[Score: 0/3]**. Explain what a counterargument is. Wait for their next attempt.
+
+# REHEARSAL SUMMARY
+After Stage 4: "You have completed all 4 stages. Here is your Rehearsal Summary — sentences you can use when speaking in class today:"
+Labels: My Summary:, My Connection:, My Opinion:, Counterargument to Consider: (1-2 sentences each).
+
+# FORMAT AND TONE
+- Warm, conversational prose (CEFR B1).
+- Max 3 sentences per response (excluding Score).
+- Total word count under 60 words.
+- No bullet points or lists in conversation.
+
+# HOW TO START
+Respond EXACTLY with:
+"Welcome! Let's prepare for your class together. We'll work through 4 stages. First you share your idea, then I'll give feedback based on the material to help you improve. Let's start with Stage 1 — Self-Explanation. What are the main points of the preparation material? Please summarise them in your own words."</pre>
+                        </div>
+                    </section>
+                    <!-- ═══════════════════════════════════════════════ -->
+
                     <section class="report-section">
                         <h2 class="section-heading">The Output: A Rehearsal Summary</h2>
                         <p>After completing all four stages, students receive a personalized Rehearsal Summary — four short, speakable sentences drawn directly from their own responses across the conversation. This isn't AI-generated advice; it's their own thinking, organized into something they can actually say in class.</p>
@@ -382,5 +593,20 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function copyPrompt() {
+            const text = document.getElementById('promptText').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
