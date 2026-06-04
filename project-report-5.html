@@ -400,7 +400,7 @@
 
                     <section class="report-section">
                         <h2 class="section-heading">Systematic AI Evaluation: Choosing the Right Model</h2>
-                        <p>Building the right instructional experience required more than a good prompt — it required selecting the right AI model. I systematically evaluated five LLMs across five pedagogically-grounded criteria through three rounds of iterative prompt testing.</p>
+                        <p>Building the right instructional experience required more than a good prompt — it required selecting the right AI model. I systematically evaluated five LLMs across five pedagogically-grounded criteria through three rounds of iterative design testing.</p>
                         <div class="highlight-box">
                             <h4>Why This Mattered</h4>
                             <p>Different models have fundamentally different personalities. A model that scores perfectly on accuracy can still undermine learning if its tone makes students feel judged. I needed a model that was both pedagogically accurate <em>and</em> psychologically safe for non-native English speakers in a high-stakes context.</p>
@@ -427,26 +427,43 @@
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Iterative Prompt Engineering</h2>
-                        <p>The prompt didn't emerge fully formed — it went through three significant iterations, each one responding to a real failure mode discovered in testing:</p>
-                        <ul>
-                            <li><strong>Round 1:</strong> Established the basic 4-stage structure and feedback format. Revealed that without branching logic, the AI moved students forward regardless of response quality.</li>
-                            <li><strong>Round 2:</strong> Added a mastery-based progression rule — students could not advance until they hit the maximum score. Revealed this was too strict: students were getting stuck in loops on early stages.</li>
-                            <li><strong>Round 3:</strong> Calibrated scoring thresholds (Stages 1 & 2 scored out of 2, Stages 3 & 4 out of 3) and added explicit grounding rules requiring the AI to cite specific sections of the uploaded material. Added CEFR B1 tone constraints and a strict 60-word response limit to keep feedback accessible and concise.</li>
-                        </ul>
-                        <p>Each iteration was tested with calibrated example inputs across all score levels to verify the model's scoring accuracy before moving to live testing.</p>
+                        <h2 class="section-heading">Designing an AI Tutor Through Iterative Testing</h2>
+                        <p>Designing the instructional logic of Discuss Ready was not a one-shot process — it required three rounds of structured design, failure analysis, and targeted refinement. Each round began with a testable prototype and ended with a clearly identified failure mode that shaped the next iteration.</p>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>Round 1 — Establishing the Cognitive Scaffold</h4>
+                                    <p>The first design established the four-stage learning sequence and basic feedback structure. Testing revealed a critical flaw: without explicit gating logic, the AI advanced students regardless of response quality. Students who gave superficial answers were praised and moved forward — directly contradicting the mastery-based progression that cognitive tutor research requires. The failure mode was not a technical bug; it was a missing instructional constraint.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>Round 2 — Adding Mastery Gating</h4>
+                                    <p>Round 2 introduced strict mastery-based progression: students could not advance until they achieved the maximum score at each stage. Testing confirmed this fixed the advancement problem — but introduced a new one. Students were caught in retry loops on early stages, cycling through repeated attempts without the targeted feedback they needed to improve. Maximum strictness without differentiated hinting created frustration rather than learning.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h4>Round 3 — Calibrating Thresholds and Scaffolded Hints</h4>
+                                    <p>The final design differentiated scoring thresholds by cognitive demand (Stages 1 & 2 scored out of 2; Stages 3 & 4 out of 3), added text-grounding rules requiring the AI to cite specific chapters or sections rather than giving generic feedback, constrained tone to CEFR B1 language, and capped responses at 60 words. Each change was verified against calibrated test inputs across all score levels before moving to live student testing.</p>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                     <!-- ═══════════════════════════════════════════════
-                         NEW SECTION: The Pre-Class Prep Prompt
+                         SECTION: Final Instructional Architecture
                     ════════════════════════════════════════════════ -->
                     <section class="report-section">
-                        <h2 class="section-heading">The Pre-Class Prep Prompt</h2>
-                        <p>The system prompt below is the engine behind Discuss Ready's pre-class preparation stage. It encodes all four cognitive stages — self-explanation, prior knowledge connection, opinion formation, and counterargument — into a single, structured instruction set that the AI follows consistently across every student session.</p>
+                        <h2 class="section-heading">Final Instructional Architecture</h2>
+                        <p>The final version of Discuss Ready is not simply a chatbot with instructions — it is a structured instructional system with distinct pedagogical logic at every layer. Each design element maps directly to a learning science principle: what students do, in what order, under what conditions, and with what kind of support.</p>
 
                         <div class="prompt-intro">
-                            <h4 style="margin:0 0 0.5rem; color:#007BA7;">How it works</h4>
-                            <p style="margin:0; font-size:0.9rem; color:#2d4a5a;">Rather than leaving the AI to interpret "be helpful," this prompt defines <strong>exact scoring rubrics</strong>, <strong>branching progression rules</strong>, and <strong>tone constraints</strong> for each stage. The student cannot move forward until they reach mastery — but the AI never tells them the answer, only where to look. This keeps the cognitive work firmly with the student, not the model.</p>
+                            <h4 style="margin:0 0 0.5rem; color:#007BA7;">Instructional design decisions encoded in the system</h4>
+                            <p style="margin:0; font-size:0.9rem; color:#2d4a5a;">The four-stage learning sequence encodes a deliberate cognitive progression from comprehension to argumentation. <strong>Mastery-based gating</strong> ensures students cannot advance by giving surface-level answers. <strong>Differentiated scoring rubrics</strong> (2-point for recall stages, 3-point for argumentation stages) calibrate challenge to cognitive demand. <strong>Text-grounding rules</strong> prevent the AI from providing answers — every hint directs students back to the source material, keeping the cognitive work with the learner. <strong>CEFR B1 tone constraints</strong> and a 60-word response limit are accessibility decisions: they ensure non-native English speakers feel supported, not evaluated.</p>
                         </div>
 
                         <div class="prompt-stage-grid">
@@ -589,7 +606,7 @@ Respond EXACTLY with:
                     <div class="sidebar-section">
                         <h3>Skills & Tools</h3>
                         <div class="sidebar-tags">
-                            <span>Prompt Engineering</span>
+                            <span>AI Instructional Design</span>
                             <span>LLM Evaluation</span>
                             <span>Instructional Design</span>
                             <span>Mistral / Llama / GPT</span>
