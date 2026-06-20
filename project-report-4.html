@@ -108,40 +108,18 @@
         }
         .step-number { font-size: 1.2rem; width: 44px; height: 44px; }
 
-        /* Learner type cards */
-        .learner-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin: 1.5rem 0;
-        }
-        .learner-card {
-            border-radius: 12px;
-            padding: 1.25rem;
-            border: 2px solid transparent;
-            transition: all 0.2s;
-        }
-        .learner-card:hover { transform: translateY(-3px); }
-        .learner-card.type-1 { background: #f0f9ff; border-color: #4B9CD3; }
-        .learner-card.type-2 { background: #fff5f5; border-color: #e57373; }
-        .learner-card.type-3 { background: #fff8e1; border-color: #ffb74d; }
-        .learner-card .type-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .learner-card h4 { font-size: 1rem; margin-bottom: 0.4rem; }
-        .learner-card p { font-size: 0.85rem; color: #555; margin: 0 0 0.6rem; }
-        .learner-card .intervention {
-            font-size: 0.82rem;
-            font-style: italic;
-            padding: 0.4rem 0.6rem;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.7);
-            color: #333;
-        }
-
         .report-sidebar .sidebar-section { border-top: 3px solid #007BA7; }
 
-        @media (max-width: 700px) {
-            .learner-grid { grid-template-columns: 1fr; }
+        .report-section ul { list-style: none; margin-left: 0; }
+        .report-section ul li {
+            padding: 0.75rem 1rem;
+            background: #f8fbff;
+            border-radius: 8px;
+            border-left: 3px solid #4B9CD3;
+            margin-bottom: 0.75rem;
+            transition: background 0.2s;
         }
+        .report-section ul li:hover { background: #eef5fc; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -163,14 +141,14 @@
 
     <section class="report-header">
         <div class="container">
-            <div class="project-badge">Adaptive Learning Module — Learning Analytics</div>
+            <div class="project-badge">AI-Supported Learning Experience</div>
             <span class="report-category">Instructional Design • 2026</span>
-            <h1 class="report-title">Developing Student Feedback Literacy with AI & Learning Analytics</h1>
-            <p class="report-subtitle">An adaptive system that closes the gap between receiving feedback and actually using it — grounded in Nicol & Macfarlane-Dick's (2006) seven principles of good feedback practice.</p>
+            <h1 class="report-title">Developing Student Feedback Literacy with AI</h1>
+            <p class="report-subtitle">An AI-supported learning experience that helps students move from receiving feedback to acting on it — grounded in Carless & Boud's (2018) Feedback Literacy Framework.</p>
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Framework</span>
-                    <span class="meta-value">Nicol & Macfarlane-Dick (2006)</span>
+                    <span class="meta-value">Carless & Boud (2018)</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
@@ -190,78 +168,57 @@
                 <article class="report-main">
 
                     <section class="report-section">
-                        <h2 class="section-heading">The Problem I Identified</h2>
+                        <h2 class="section-heading">The Problem</h2>
                         <p>
-                            Most feedback interventions focus on improving the <em>quality</em> of feedback. But that's not where the system breaks down. Students receive feedback — they just don't use it.
+                            Students regularly receive feedback on their work, yet many struggle to use it to improve future performance. Feedback often becomes a justification for a grade rather than a tool for learning. While institutions invest significant effort in improving feedback quality, research suggests that the larger challenge lies in students' ability to interpret, evaluate, and act upon feedback.
+                        </p>
+                        <p>
+                            Carless and Boud (2018) describe this challenge as a feedback literacy problem. Students need support not only in understanding feedback, but also in managing their emotional responses, recognizing feedback's purpose, evaluating its importance, and developing plans for improvement. Without these skills, feedback rarely translates into meaningful action.
+                        </p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Research-Based Design</h2>
+                        <p>
+                            To address this challenge, I designed an AI-supported learning experience grounded in the Feedback Literacy Framework (Carless & Boud, 2018). The learning experience focuses on four dimensions of feedback literacy:
+                        </p>
+                        <ul>
+                            <li>1. Managing Affect</li>
+                            <li>2. Appreciating Feedback</li>
+                            <li>3. Making Judgements</li>
+                            <li>4. Taking Action</li>
+                        </ul>
+                        <p>
+                            Rather than simply referencing these theories, I analyzed the literature to identify the core instructional principles underlying each dimension and translated those principles into learning activities and AI-supported interactions.
                         </p>
                         <div class="highlight-box">
-                            <h4>The Real Gap</h4>
+                            <h4>Translating Theory into Practice</h4>
                             <p>
-                                Students check their score and move on. Feedback becomes a grade justification, not a growth tool. The research term for what students <em>should</em> be doing is "feed-forward" — using feedback to plan future improvement. Almost no one does this without structured support.
+                                The Appreciating Feedback module was informed by Winstone and Boud's (2021) work on helping students understand the purpose and value of feedback. The Making Judgements module drew on Panadero and Broadbent's (2018) research on evaluative judgement, encouraging learners to prioritize and evaluate feedback rather than treating all comments equally. The Taking Action module incorporated self-regulated learning principles from Zimmerman (2002), guiding students to develop concrete plans for future improvement.
                             </p>
                         </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Instructional Design Approach</h2>
                         <p>
-                            Nicol & Macfarlane-Dick (2006) identify this as a self-regulation failure: students lack the cognitive scaffolding to decode feedback, connect it to their goals, and translate it into action. The problem isn't motivation — it's structure.
+                            The learning experience was designed around students' own feedback rather than hypothetical examples. Learners upload or review feedback they have received and complete a sequence of structured reflection activities aligned with the four dimensions of feedback literacy.
+                        </p>
+                        <p>
+                            Within Module 3, I designed AI-supported interactions that scaffold students' thinking and reflection processes. The AI does not provide answers or corrections. Instead, it uses prompts and guided questioning to help students interpret feedback, evaluate its significance, and identify meaningful next steps.
+                        </p>
+                        <p>
+                            By integrating learning science principles directly into both assessment activities and AI interactions, the design supports deeper engagement with feedback while encouraging learner ownership of the improvement process.
                         </p>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">How I Approached the Solution</h2>
+                        <h2 class="section-heading">Final Learning Experience</h2>
                         <p>
-                            Rather than trying to fix feedback itself, I designed a system that targets the moment feedback most often fails — the transition from receiving to acting. The insight was that this required <em>two</em> interlocking interventions, not one:
-                        </p>
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <span class="step-number">1</span>
-                                <div class="step-content">
-                                    <h4>An AI Reflection Tool — for students</h4>
-                                    <p>A structured dialogue tool that guides students through interpreting their feedback, connecting it to prior knowledge, and building a concrete action plan. The AI never gives answers — it scaffolds the reasoning process, pushing students from passive receivers into active planners.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <span class="step-number">2</span>
-                                <div class="step-content">
-                                    <h4>A Learning Analytics Dashboard — for teachers</h4>
-                                    <p>A dashboard that synthesizes behavioral engagement logs (did they access feedback? how quickly? how many AI turns?) with AI-scored cognitive data (quality of sense-making, specificity of goal-setting) into actionable profiles. Teachers get targeted intervention prompts — not raw data.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="report-section">
-                        <h2 class="section-heading">The Adaptive Logic: Three Learner Profiles</h2>
-                        <p>
-                            Crossing behavioral and cognitive data reveals three distinct learner types — each requiring a different response. This is where the system becomes genuinely adaptive rather than just descriptive:
-                        </p>
-                        <div class="learner-grid">
-                            <div class="learner-card type-1">
-                                <div class="type-emoji">✅</div>
-                                <h4>Resourceful Learner</h4>
-                                <p>High engagement + high metacognition. Already doing it right.</p>
-                                <div class="intervention">→ Acknowledge progress, offer advanced resources.</div>
-                            </div>
-                            <div class="learner-card type-2">
-                                <div class="type-emoji">⚠️</div>
-                                <h4>"Surface" Checker</h4>
-                                <p>Low engagement + low metacognition. Checks score, exits fast.</p>
-                                <div class="intervention">→ Automated nudge to revisit feedback.</div>
-                            </div>
-                            <div class="learner-card type-3">
-                                <div class="type-emoji">🔁</div>
-                                <h4>Trial & Error Learner</h4>
-                                <p>Medium engagement + low metacognition. Stuck in a chat loop.</p>
-                                <div class="intervention">→ Direct scaffolding to specific class resources.</div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="report-section">
-                        <h2 class="section-heading">What This Demonstrates</h2>
-                        <p>
-                            This project shows that I can take a well-established theoretical problem — the feedback literacy gap — and translate it into a concrete, data-driven instructional system. The key design move was recognizing that fixing feedback quality was the wrong lever. The right lever was structuring what happens <em>after</em> feedback arrives.
+                            The final product is an AI-supported feedback literacy intervention that helps students move from receiving feedback to acting on it.
                         </p>
                         <p>
-                            By combining AI scaffolding with behavioral analytics, the system doesn't just support individual students — it gives teachers the evidence they need to intervene at scale.
+                            Through structured reflection activities, evidence-based scaffolding, and guided AI interactions, students develop the skills needed to understand feedback, evaluate its importance, and create actionable improvement plans. The project demonstrates my ability to synthesize learning science research, design learner-centered instructional experiences, and translate theoretical frameworks into practical educational solutions.
                         </p>
                     </section>
 
@@ -282,21 +239,20 @@
                     <div class="sidebar-section">
                         <h3>Theoretical Frameworks</h3>
                         <div class="sidebar-tags">
-                            <span>Nicol & Macfarlane-Dick (2006)</span>
-                            <span>Self-Regulated Learning</span>
-                            <span>7 Principles of Feedback</span>
-                            <span>Adaptive Learning</span>
+                            <span>Carless & Boud (2018)</span>
+                            <span>Feedback Literacy</span>
+                            <span>Winstone & Boud (2021)</span>
+                            <span>Panadero & Broadbent (2018)</span>
+                            <span>Zimmerman (2002) SRL</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
                         <h3>Skills & Tools</h3>
                         <div class="sidebar-tags">
-                            <span>Learning Analytics</span>
                             <span>Instructional Design</span>
                             <span>AI Tutoring</span>
-                            <span>Dashboard Design</span>
-                            <span>Data Architecture</span>
-                            <span>LMS Integration</span>
+                            <span>Learning Science Research</span>
+                            <span>Reflective Activity Design</span>
                         </div>
                     </div>
                     <div class="sidebar-section sidebar-cta">
