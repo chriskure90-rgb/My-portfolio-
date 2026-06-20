@@ -135,12 +135,6 @@
             transform: translateY(-2px);
         }
         .step-number { font-size: 1.2rem; width: 44px; height: 44px; }
-        .result-card { transition: transform 0.2s, box-shadow 0.2s; }
-        .result-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,123,167,0.15);
-        }
-        .result-number { font-size: 2.8rem; }
         .live-demo-btn {
             display: inline-flex;
             align-items: center;
@@ -180,146 +174,6 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* ── Prompt Section ── */
-        .prompt-intro {
-            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
-            border-left: 5px solid #00bfff;
-            border-radius: 0 8px 8px 0;
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1.75rem;
-        }
-        .prompt-stage-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.85rem;
-            margin-bottom: 1.75rem;
-        }
-        .prompt-stage-card {
-            background: #fafcff;
-            border: 1px solid #e8f0f8;
-            border-radius: 10px;
-            padding: 1rem 1.1rem;
-            display: flex;
-            gap: 0.85rem;
-            align-items: flex-start;
-        }
-        .prompt-stage-num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 34px;
-            height: 34px;
-            min-width: 34px;
-            background: linear-gradient(135deg, #00bfff, #007BA7);
-            color: #fff;
-            font-weight: 700;
-            font-size: 0.85rem;
-            border-radius: 50%;
-        }
-        .prompt-stage-body h4 {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: #007BA7;
-            margin: 0 0 0.25rem;
-        }
-        .prompt-stage-body p {
-            font-size: 0.82rem;
-            color: #4a5568;
-            margin: 0;
-            line-height: 1.55;
-        }
-        .prompt-toggle-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            background: transparent;
-            border: 1.5px solid #007BA7;
-            color: #007BA7;
-            font-family: inherit;
-            font-size: 0.875rem;
-            font-weight: 600;
-            padding: 0.65rem 1.4rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 0.5rem;
-        }
-        .prompt-toggle-btn:hover {
-            background: rgba(0,123,167,0.06);
-            border-color: #00bfff;
-            color: #00bfff;
-        }
-        .prompt-toggle-btn .btn-arrow {
-            display: inline-block;
-            transition: transform 0.3s ease;
-            font-style: normal;
-        }
-        .prompt-toggle-btn.open .btn-arrow {
-            transform: rotate(180deg);
-        }
-        .prompt-collapsible {
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
-            margin-top: 0;
-        }
-        .prompt-collapsible.open {
-            max-height: 3000px;
-            opacity: 1;
-            margin-top: 1.25rem;
-        }
-        .prompt-block-wrapper {
-            position: relative;
-        }
-        .prompt-block-label {
-            display: inline-block;
-            background: linear-gradient(135deg, #00bfff, #007BA7);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.85rem;
-            border-radius: 6px 6px 0 0;
-            margin-bottom: 0;
-        }
-        .prompt-copy-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: rgba(0,123,167,0.08);
-            border: 1px solid rgba(0,123,167,0.2);
-            color: #007BA7;
-            font-size: 0.75rem;
-            font-weight: 500;
-            padding: 0.3rem 0.8rem;
-            border-radius: 0 0 0 6px;
-            cursor: pointer;
-            transition: background 0.2s;
-            font-family: inherit;
-        }
-        .prompt-copy-btn:hover { background: rgba(0,123,167,0.15); }
-        .prompt-copy-btn.copied { color: #2e7d32; border-color: rgba(46,125,50,0.3); background: rgba(46,125,50,0.08); }
-        pre.prompt-code {
-            background: #0d1f2d;
-            color: #cfe8f3;
-            border-radius: 0 8px 8px 8px;
-            padding: 1.4rem 1.5rem;
-            font-size: 0.78rem;
-            line-height: 1.7;
-            overflow-x: auto;
-            margin: 0;
-            white-space: pre-wrap;
-            word-break: break-word;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        .prompt-token-comment { color: #6b9fb8; }
-        .prompt-token-heading { color: #00bfff; font-weight: 700; }
-        .prompt-token-rule { color: #f9c74f; }
-        .prompt-token-stage { color: #90e0a0; font-weight: 600; }
-        .prompt-token-score { color: #ff9f7e; }
     </style>
 </head>
 <body>
@@ -363,219 +217,61 @@
 
                     <section class="report-section">
                         <h2 class="section-heading">The Problem</h2>
-                        <p>International and non-traditional students consistently struggle to participate in high-stakes classroom discussions — not because they lack ideas, but because existing tools leave them without structured support. Most preparation is passive: read the material, show up, hope for the best.</p>
-                        <div class="highlight-box">
-                            <h4>Core Insight</h4>
-                            <p>Research shows that students often have the knowledge but lack the cognitive scaffolding to transform it into a discussion-ready contribution. Without structure, most students stay in the "Passive" or "Active" modes of the ICAP framework — far from the "Constructive" and "Interactive" engagement that meaningful discussion demands (Chi & Wylie, 2014).</p>
-                        </div>
+                        <p>International and non-traditional students often struggle to participate in classroom discussions, not because they lack ideas, but because they lack structured support for transforming their understanding into discussion-ready contributions. Existing preparation is often passive, leaving students without opportunities to practice meaningful participation.</p>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Designing from Research, Not Intuition</h2>
-                        <p>Every design decision in Discuss Ready traces back to an empirical source. Rather than guessing what students need, I built the four-stage structure directly from the literature:</p>
+                        <h2 class="section-heading">Research-Based Design</h2>
+                        <p>Discuss Ready is an AI-supported discussion preparation tool grounded in learning science rather than intuition.</p>
+                        <p>The design draws from three key research foundations:</p>
+                        <ul>
+                            <li><strong>Self-Explanation (Bielaczyc et al., 1995):</strong> Students first summarize the material and connect it to their prior experiences.</li>
+                            <li><strong>Argumentation (Nussbaum et al., 2007):</strong> Students develop evidence-based opinions and consider opposing viewpoints.</li>
+                            <li><strong>Cognitive Tutoring (Aleven & Koedinger, 2002):</strong> Feedback provides hints and guidance rather than answers, encouraging learners to engage directly with course materials.</li>
+                        </ul>
+                        <p>This structure was designed to move learners from passive engagement toward constructive participation consistent with the ICAP framework.</p>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Iterative Design and Testing</h2>
+                        <p>The instructional design process involved three rounds of testing and refinement.</p>
                         <div class="process-steps">
                             <div class="process-step">
                                 <span class="step-number">1</span>
                                 <div class="step-content">
-                                    <h4>Stage 1 & 2: Self-Explanation — grounded in Bielaczyc et al. (1995)</h4>
-                                    <p>Bielaczyc's research shows that effective self-explanation isn't just "explain this" — it requires structured prompts that move from abstract conceptual understanding to concrete connections with prior knowledge. Stage 1 guides students to summarize the material; Stage 2 asks them to connect it to personal experience. This sequence deliberately mirrors the scaffolding progression Bielaczyc demonstrated improves higher-level cognitive skill acquisition.</p>
+                                    <h4>Round 1</h4>
+                                    <p>Students advanced regardless of response quality, revealing the need for mastery-based progression.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <span class="step-number">2</span>
                                 <div class="step-content">
-                                    <h4>Stage 3 & 4: Opinion & Counterargument — grounded in Nussbaum et al. (2007)</h4>
-                                    <p>Stages 3 and 4 push students into ICAP's "Constructive" mode: forming a clearly evidenced opinion, then stress-testing it by articulating the strongest opposing view. This follows Nussbaum's framework for building argumentation competence — not just having a position, but being able to defend and refine it.</p>
+                                    <h4>Round 2</h4>
+                                    <p>Mastery gating was added, but learners became stuck in repetitive retry loops.</p>
                                 </div>
                             </div>
                             <div class="process-step">
                                 <span class="step-number">3</span>
                                 <div class="step-content">
-                                    <h4>Feedback & Hints — grounded in Aleven & Koedinger (2002)</h4>
-                                    <p>Aleven's research on cognitive tutors shows that hints should never give the answer — they should direct students toward the right resources and reasoning. Every feedback response in Discuss Ready is designed to reveal gaps in understanding rather than fill them, and every hint points students back to the material rather than forward to the solution.</p>
+                                    <h4>Round 3</h4>
+                                    <p>Scoring thresholds, scaffolded hints, text-grounded feedback, and accessibility-focused language constraints were introduced to balance rigor and learner support.</p>
                                 </div>
                             </div>
                         </div>
+                        <p>Each revision was informed by identified learner challenges and validated through structured testing.</p>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Systematic AI Evaluation: Choosing the Right Model</h2>
-                        <p>Building the right instructional experience required more than a good prompt — it required selecting the right AI model. I systematically evaluated five LLMs across five pedagogically-grounded criteria through three rounds of iterative design testing.</p>
-                        <div class="highlight-box">
-                            <h4>Why This Mattered</h4>
-                            <p>Different models have fundamentally different personalities. A model that scores perfectly on accuracy can still undermine learning if its tone makes students feel judged. I needed a model that was both pedagogically accurate <em>and</em> psychologically safe for non-native English speakers in a high-stakes context.</p>
-                        </div>
-                        <div class="results-grid">
-                            <div class="result-card">
-                                <span class="result-number">5</span>
-                                <span class="result-label">LLMs evaluated (GPT-4o, Gemini, Llama 4, Llama 3.3, Mistral)</span>
-                            </div>
-                            <div class="result-card">
-                                <span class="result-number">5</span>
-                                <span class="result-label">Evaluation criteria (Scoring Accuracy, Text Grounding, Logic & Flow, Formatting, Tone)</span>
-                            </div>
-                            <div class="result-card">
-                                <span class="result-number">3</span>
-                                <span class="result-label">Rounds of prompt iteration and refinement</span>
-                            </div>
-                            <div class="result-card">
-                                <span class="result-number">10/10</span>
-                                <span class="result-label">Final score for Mistral Large 3 — the selected model</span>
-                            </div>
-                        </div>
-                        <p><strong>Mistral Large 3 scored 10/10</strong> — the only model to pass all five criteria. But the reason I chose it went beyond the rubric: Mistral's tone was distinctly encouraging and conversational, written at a CEFR B1 level that made non-native speakers feel supported rather than evaluated. GPT-4o was strict but cold. Llama 4 was accurate but blunt. Mistral guided students toward thinking deeper by asking questions, rather than simply flagging errors.</p>
-                    </section>
-
-                    <section class="report-section">
-                        <h2 class="section-heading">Designing an AI Tutor Through Iterative Testing</h2>
-                        <p>Designing the instructional logic of Discuss Ready was not a one-shot process — it required three rounds of structured design, failure analysis, and targeted refinement. Each round began with a testable prototype and ended with a clearly identified failure mode that shaped the next iteration.</p>
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <span class="step-number">1</span>
-                                <div class="step-content">
-                                    <h4>Round 1 — Establishing the Cognitive Scaffold</h4>
-                                    <p>The first design established the four-stage learning sequence and basic feedback structure. Testing revealed a critical flaw: without explicit gating logic, the AI advanced students regardless of response quality. Students who gave superficial answers were praised and moved forward — directly contradicting the mastery-based progression that cognitive tutor research requires. The failure mode was not a technical bug; it was a missing instructional constraint.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <span class="step-number">2</span>
-                                <div class="step-content">
-                                    <h4>Round 2 — Adding Mastery Gating</h4>
-                                    <p>Round 2 introduced strict mastery-based progression: students could not advance until they achieved the maximum score at each stage. Testing confirmed this fixed the advancement problem — but introduced a new one. Students were caught in retry loops on early stages, cycling through repeated attempts without the targeted feedback they needed to improve. Maximum strictness without differentiated hinting created frustration rather than learning.</p>
-                                </div>
-                            </div>
-                            <div class="process-step">
-                                <span class="step-number">3</span>
-                                <div class="step-content">
-                                    <h4>Round 3 — Calibrating Thresholds and Scaffolded Hints</h4>
-                                    <p>The final design differentiated scoring thresholds by cognitive demand (Stages 1 & 2 scored out of 2; Stages 3 & 4 out of 3), added text-grounding rules requiring the AI to cite specific chapters or sections rather than giving generic feedback, constrained tone to CEFR B1 language, and capped responses at 60 words. Each change was verified against calibrated test inputs across all score levels before moving to live student testing.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- ═══════════════════════════════════════════════
-                         SECTION: Final Instructional Architecture
-                    ════════════════════════════════════════════════ -->
-                    <section class="report-section">
-                        <h2 class="section-heading">Final Instructional Architecture</h2>
-                        <p>The final version of Discuss Ready is not simply a chatbot with instructions — it is a structured instructional system with distinct pedagogical logic at every layer. Each design element maps directly to a learning science principle: what students do, in what order, under what conditions, and with what kind of support.</p>
-
-                        <div class="prompt-intro">
-                            <h4 style="margin:0 0 0.5rem; color:#007BA7;">Instructional design decisions encoded in the system</h4>
-                            <p style="margin:0; font-size:0.9rem; color:#2d4a5a;">The four-stage learning sequence encodes a deliberate cognitive progression from comprehension to argumentation. <strong>Mastery-based gating</strong> ensures students cannot advance by giving surface-level answers. <strong>Differentiated scoring rubrics</strong> (2-point for recall stages, 3-point for argumentation stages) calibrate challenge to cognitive demand. <strong>Text-grounding rules</strong> prevent the AI from providing answers — every hint directs students back to the source material, keeping the cognitive work with the learner. <strong>CEFR B1 tone constraints</strong> and a 60-word response limit are accessibility decisions: they ensure non-native English speakers feel supported, not evaluated.</p>
-                        </div>
-
-                        <div class="prompt-stage-grid">
-                            <div class="prompt-stage-card">
-                                <div class="prompt-stage-num">1</div>
-                                <div class="prompt-stage-body">
-                                    <h4>Self-Explanation</h4>
-                                    <p>Students summarise the reading in their own words. Scored out of 2; gaps trigger a pointer to a specific chapter or section, not a correction.</p>
-                                </div>
-                            </div>
-                            <div class="prompt-stage-card">
-                                <div class="prompt-stage-num">2</div>
-                                <div class="prompt-stage-body">
-                                    <h4>Prior Knowledge Connection</h4>
-                                    <p>Students link the material to personal experience or earlier learning. Vague links score 1/2 and prompt elaboration before advancing.</p>
-                                </div>
-                            </div>
-                            <div class="prompt-stage-card">
-                                <div class="prompt-stage-num">3</div>
-                                <div class="prompt-stage-body">
-                                    <h4>Opinion Formation</h4>
-                                    <p>Students state a clear, evidence-backed position. Scored out of 3; a vague reason prompts the AI to request a direct quote from the text.</p>
-                                </div>
-                            </div>
-                            <div class="prompt-stage-card">
-                                <div class="prompt-stage-num">4</div>
-                                <div class="prompt-stage-body">
-                                    <h4>Counterargument</h4>
-                                    <p>Students articulate the strongest opposing view to their own Stage 3 position. Full marks require a direct challenge with specific evidence.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="prompt-toggle-btn" id="toggleBtn" onclick="togglePrompt()">
-                            View full system prompt <i class="btn-arrow">▾</i>
-                        </button>
-
-                        <div class="prompt-collapsible" id="promptCollapsible">
-                        <div class="prompt-block-wrapper">
-                            <span class="prompt-block-label">System Prompt — Pre-Class Prep Stage</span>
-                            <button class="prompt-copy-btn" id="copyBtn" onclick="copyPrompt()">Copy</button>
-                            <pre class="prompt-code" id="promptText"># ROLE
-You are a warm, supportive AI tutor helping an international student prepare for an English-medium academic discussion.
-
-# CONTEXT &amp; GROUNDING
-The student has uploaded preparation material. You must ground all evaluations strictly in this material. Never hallucinate facts outside the material.
-*CRITICAL FEEDBACK RULES:* 1. If a student misses points in Stage 1, you MUST advise them to recheck the material and explicitly specify WHICH chapter, section, or heading they need to look at.
-2. Whenever a student needs to strengthen their reasoning (especially in Stages 3 and 4), explicitly encourage them to use direct quotes or specific references from the material.
-
-# SCORING &amp; BRANCHING LOGIC (VISIBLE EVALUATION)
-For EVERY response from the student, evaluate it and assign a Score.
-- Stages 1 and 2 are scored out of 2 (0, 1, or 2).
-- Stages 3 and 4 are scored out of 3 (0, 1, 2, or 3).
-CRITICAL: You MUST display the score at the very top of your response exactly like this: **[Score: X/2]** or **[Score: X/3]**. Then, execute the corresponding action.
-
-# PROGRESSION RULE (STRICT MASTERY)
-The student CANNOT advance to the next stage until they achieve the MAXIMUM score (2/2 for Stages 1 and 2, and 3/3 for Stages 3 and 4).
-If they receive a lower score, you must provide feedback and wait for them to try again. Do not move to the next stage until they get a perfect score.
-
-# EXAMPLES FOR CALIBRATION (Dummy topic: "Banning smartphones")
-- Score 1 (Missing major part): S3 "I agree with banning phones." (No reason). S4 "Parents need to call kids." (Valid, but doesn't challenge the specific S3 reason).
-- Score 2 (Vague/Surface level): S3 "I agree because they are bad for studying." S4 "It's good to use phones for emergencies, which breaks the focus."
-- Score 3 (Strong Evidence/Logic): S3 "I agree because the article shows phones reduce test scores by 10% due to distraction."
-
---- Stage 1: Conceptual Self-Explanation ---
-Goal: Summarise the main ideas of the material accurately.
-- Score 2 (Accurate &amp; Complete): Display **[Score: 2/2]**. Say "✓ Stage 1 complete!". Move to Stage 2.
-- Score 1 (Partial/Missing details): Display **[Score: 1/2]**. Advise them to recheck a specific chapter/section. Wait for their next attempt.
-- Score 0 (Incorrect/Missing): Display **[Score: 0/2]**. Point to the exact chapter/section. Give 1 hint. Wait for their next attempt.
-
---- Stage 2: Connecting to Prior Knowledge ---
-Goal: Connect material to personal experience or prior learning.
-- Score 2 (Clear link &amp; explanation): Display **[Score: 2/2]**. Say "✓ Stage 2 complete!". Move to Stage 3.
-- Score 1 (Vague link only): Display **[Score: 1/2]**. Ask them to elaborate. Wait for their next attempt.
-- Score 0 (No connection): Display **[Score: 0/2]**. Explain the need for a link. Give 1 hint. Wait for their next attempt.
-
---- Stage 3: Opinion Formation ---
-Goal: State a clear opinion supported by SPECIFIC evidence or strong reasoning.
-- Score 3 (Opinion + Specific Evidence): Display **[Score: 3/3]**. Say "✓ Stage 3 complete!". Move to Stage 4.
-- Score 2 (Opinion + Vague Reason): Display **[Score: 2/3]**. Suggest they use a direct quote from the material. Wait for their next attempt.
-- Score 1 (Opinion only): Display **[Score: 1/3]**. Ask "Why do you think so?". Wait for their next attempt.
-- Score 0 (No position): Display **[Score: 0/3]**. Encourage taking a side. Wait for their next attempt.
-
---- Stage 4: Counterargument Consideration ---
-Goal: Identify an opposing view that directly challenges their Stage 3 reason with specific evidence.
-- Score 3 (Direct challenge + Specific Evidence): Display **[Score: 3/3]**. Say "✓ Stage 4 complete! 🎉". Generate Rehearsal Summary.
-- Score 2 (Direct challenge but weak logic): Display **[Score: 2/3]**. Ask for stronger evidence or a quote for the opposing side. Wait for their next attempt.
-- Score 1 (General counter): Display **[Score: 1/3]**. Ask how an opponent would respond to their specific Stage 3 reason. Wait for their next attempt.
-- Score 0 (No counter): Display **[Score: 0/3]**. Explain what a counterargument is. Wait for their next attempt.
-
-# REHEARSAL SUMMARY
-After Stage 4: "You have completed all 4 stages. Here is your Rehearsal Summary — sentences you can use when speaking in class today:"
-Labels: My Summary:, My Connection:, My Opinion:, Counterargument to Consider: (1-2 sentences each).
-
-# FORMAT AND TONE
-- Warm, conversational prose (CEFR B1).
-- Max 3 sentences per response (excluding Score).
-- Total word count under 60 words.
-- No bullet points or lists in conversation.
-
-# HOW TO START
-Respond EXACTLY with:
-"Welcome! Let's prepare for your class together. We'll work through 4 stages. First you share your idea, then I'll give feedback based on the material to help you improve. Let's start with Stage 1 — Self-Explanation. What are the main points of the preparation material? Please summarise them in your own words."</pre>
-                        </div>
-                        </div><!-- /.prompt-collapsible -->
-                    </section>
-                    <!-- ═══════════════════════════════════════════════ -->
-
-                    <section class="report-section">
-                        <h2 class="section-heading">The Output: A Rehearsal Summary</h2>
-                        <p>After completing all four stages, students receive a personalized Rehearsal Summary — four short, speakable sentences drawn directly from their own responses across the conversation. This isn't AI-generated advice; it's their own thinking, organized into something they can actually say in class.</p>
-                        <p>This design decision reflects a core principle from the SToG framework (Kollar, Wecker, & Fischer, 2018): scaffolds should support the structure of participation without prescribing the content. The tool gives students confidence in <em>how</em> to participate — what they say remains entirely their own.</p>
+                        <h2 class="section-heading">Final Product</h2>
+                        <p>The final version of Discuss Ready guides learners through four stages:</p>
+                        <ul>
+                            <li>1. Self-Explanation</li>
+                            <li>2. Prior Knowledge Connection</li>
+                            <li>3. Opinion Formation</li>
+                            <li>4. Counterargument</li>
+                        </ul>
+                        <p>After completing the sequence, learners receive a personalized discussion rehearsal summary based on their own responses, helping them confidently participate in classroom discussions.</p>
+                        <p>The project demonstrates my ability to translate learning science research into a practical instructional system through iterative design, usability testing, and evidence-based decision making.</p>
                         <a href="https://discuss-ready.vercel.app" target="_blank" class="live-demo-btn">Try Discuss Ready Live</a>
                     </section>
 
@@ -600,7 +296,6 @@ Respond EXACTLY with:
                             <span>Self-Explanation (Bielaczyc 1995)</span>
                             <span>Cognitive Tutors (Aleven 2002)</span>
                             <span>Argumentation (Nussbaum 2007)</span>
-                            <span>Script Theory (SToG)</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
@@ -657,31 +352,5 @@ Respond EXACTLY with:
             </div>
         </div>
     </footer>
-
-    <script>
-        function togglePrompt() {
-            const panel = document.getElementById('promptCollapsible');
-            const btn   = document.getElementById('toggleBtn');
-            const isOpen = panel.classList.toggle('open');
-            btn.classList.toggle('open', isOpen);
-            btn.querySelector('.btn-arrow').textContent = isOpen ? '▴' : '▾';
-            btn.childNodes[0].textContent = isOpen ? 'Hide full system prompt ' : 'View full system prompt ';
-            if (isOpen) {
-                setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
-            }
-        }
-        function copyPrompt() {
-            const text = document.getElementById('promptText').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = document.getElementById('copyBtn');
-                btn.textContent = 'Copied!';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = 'Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        }
-    </script>
 </body>
 </html>
