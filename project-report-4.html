@@ -67,6 +67,53 @@
             margin-bottom: 0.4rem;
         }
         .meta-value { font-size: 1rem; font-weight: 600; color: #fff; }
+
+        /* Live Demo Button — Hero */
+        .hero-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ffffff;
+            color: #007BA7;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.25);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.5s backwards;
+        }
+        .hero-demo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            color: #007BA7;
+        }
+        .hero-demo-btn::before { content: '🚀'; font-size: 1.1rem; }
+
+        .live-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+        .live-demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,191,255,0.35);
+            color: white;
+        }
+        .live-demo-btn::before { content: '🚀'; }
+
         .project-badge {
             display: inline-flex;
             align-items: center;
@@ -145,6 +192,9 @@
             <span class="report-category">Instructional Design • 2026</span>
             <h1 class="report-title">Developing Student Feedback Literacy with AI</h1>
             <p class="report-subtitle">An AI-supported learning experience that helps students move from receiving feedback to acting on it — grounded in Carless & Boud's (2018) Feedback Literacy Framework.</p>
+
+            <a href="https://acti-on-feedback-literacy.vercel.app" target="_blank" class="hero-demo-btn">Try ActiOn Live</a>
+
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Framework</span>
@@ -220,6 +270,7 @@
                         <p>
                             Through structured reflection activities, evidence-based scaffolding, and guided AI interactions, students develop the skills needed to understand feedback, evaluate its importance, and create actionable improvement plans. The project demonstrates my ability to synthesize learning science research, design learner-centered instructional experiences, and translate theoretical frameworks into practical educational solutions.
                         </p>
+                        <a href="https://acti-on-feedback-literacy.vercel.app" target="_blank" class="live-demo-btn">Try ActiOn Live</a>
                     </section>
 
                 </article>
@@ -254,6 +305,12 @@
                             <span>Learning Science Research</span>
                             <span>Reflective Activity Design</span>
                         </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3>Resources</h3>
+                        <ul class="resource-list">
+                            <li><a href="https://acti-on-feedback-literacy.vercel.app" target="_blank">🚀 Try ActiOn Live</a></li>
+                        </ul>
                     </div>
                     <div class="sidebar-section sidebar-cta">
                         <p>Interested in this project?</p>
