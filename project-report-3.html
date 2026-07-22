@@ -57,10 +57,9 @@ project-report-3.html
                 radial-gradient(circle at 84% 22%, rgba(117,186,240,.20), transparent 28%),
                 linear-gradient(135deg, #18324a 0%, #294d6c 52%, #4a7da5 100%);
             color: white;
-            padding: 8.2rem 2rem 2.6rem;
+            padding: 6rem 2rem 4rem;
             position: relative;
             overflow: hidden;
-            min-height: 745px;
         }
         .report-header::before {
             content: "";
@@ -78,96 +77,102 @@ project-report-3.html
         }
         .project-badge {
             position: absolute;
-            top: 1.3rem;
-            right: 0;
+            top: 1rem;
+            right: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: .65rem;
-            padding: .72rem 1.35rem;
-            border-radius: 999px;
-            border: 1px solid rgba(117,186,240,.38);
-            background: rgba(73,123,162,.24);
-            color: #f5fbff;
-            font-size: .92rem;
-            font-weight: 700;
-            backdrop-filter: blur(8px);
+            gap: .5rem;
+            background: rgba(117,186,240,.1);
+            border: 1px solid rgba(117,186,240,.3);
+            color: rgba(255,255,255,.9);
+            padding: .4rem 1rem;
+            border-radius: 50px;
+            font-size: .85rem;
+            animation: fadeInDown .6s ease;
         }
-        .project-badge::before { content: "📊"; }
         .report-category {
             display: inline-block;
-            margin: 0 auto 2.1rem;
-            padding: .72rem 1.85rem;
-            border-radius: 999px;
-            border: 1px solid rgba(117,186,240,.52);
-            background: rgba(78,129,168,.24);
+            margin: 0 auto 1.5rem;
+            padding: .5rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(117,186,240,.4);
+            background: rgba(117,186,240,.15);
             color: #75baf0;
             text-transform: uppercase;
-            letter-spacing: .11em;
-            font-size: .82rem;
-            font-weight: 800;
+            letter-spacing: .1em;
+            font-size: .8rem;
+            font-weight: 700;
         }
         .report-title {
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 5vw, 4.8rem);
-            line-height: 1.12;
-            max-width: 1450px;
-            margin: 0 auto 2.2rem;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin: 0 auto 1.5rem;
             color: white;
             font-weight: 700;
+            animation: fadeInUp .8s ease .2s backwards;
         }
         .report-subtitle {
-            max-width: 980px;
+            max-width: 750px;
             margin: 0 auto 2.5rem;
-            font-size: 1.28rem;
-            line-height: 1.65;
-            color: rgba(255,255,255,.74);
+            font-size: 1.15rem;
+            color: rgba(255,255,255,.8);
+            animation: fadeInUp .8s ease .4s backwards;
         }
-        .report-actions {
-            display: flex;
-            justify-content: center;
-            gap: .9rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.6rem;
-        }
-        .primary-cta, .secondary-cta {
-            border: 1px solid rgba(255,255,255,.30);
-            color: white;
-            background: rgba(255,255,255,.08);
-        }
-        .primary-cta {
+        .hero-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
             background: white;
-            color: var(--blue);
-            box-shadow: 0 8px 24px rgba(11,30,48,.18);
+            color: var(--blue-mid);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all .3s ease;
+            box-shadow: 0 4px 25px rgba(0,0,0,.25);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp .8s ease .5s backwards;
         }
-        .secondary-cta {
-            border: 1px solid rgba(255,255,255,.42);
-            color: white;
-            background: rgba(255,255,255,.06);
+        .hero-demo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,.3);
+            color: var(--blue-mid);
         }
-        .primary-cta:hover, .secondary-cta:hover { transform: translateY(-2px); }
         .report-meta {
             width: 100%;
             margin: 0 auto;
-            padding: 1.9rem 2rem;
+            padding: 1.5rem 2rem;
             border: 1px solid rgba(117,186,240,.34);
-            background: rgba(255,255,255,.075);
-            border-radius: 22px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            background: rgba(255,255,255,.06);
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
             backdrop-filter: blur(10px);
+            animation: fadeInUp .8s ease .6s backwards;
         }
         .meta-item { text-align: center; }
         .meta-label {
             display: block;
             font-size: .75rem;
             text-transform: uppercase;
-            letter-spacing: .12em;
-            color: rgba(255,255,255,.46);
-            margin-bottom: .65rem;
-            font-weight: 700;
+            letter-spacing: .1em;
+            color: rgba(255,255,255,.5);
+            margin-bottom: .4rem;
         }
-        .meta-value { font-weight: 800; font-size: 1.05rem; color: white; }
+        .meta-value { font-weight: 600; font-size: 1rem; color: white; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .report-content { padding: 4.5rem 0; }
         .report-layout {
             display: grid;
@@ -266,23 +271,43 @@ project-report-3.html
             font-size: .92rem;
             font-style: italic;
         }
+        .live-demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+            color: white;
+            padding: .9rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            font-size: .95rem;
+            text-decoration: none;
+            transition: all .3s ease;
+        }
+        .live-demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(63,113,152,.35);
+            color: white;
+        }
         .report-sidebar {
             display: grid;
-            gap: 1rem;
+            gap: 2rem;
             position: sticky;
             top: 92px;
         }
         .sidebar-section {
             background: white;
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--blue);
-            border-radius: 14px;
-            padding: 1.35rem;
+            border-top: 3px solid var(--blue);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,.08);
         }
         .sidebar-section h3 {
             font-family: var(--font-heading);
-            margin: 0 0 1rem;
-            font-size: 1.2rem;
+            margin: 0 0 1.5rem;
+            font-size: 1.3rem;
+            color: var(--blue-mid);
         }
         .details-list { margin: 0; }
         .details-list dt {
@@ -309,20 +334,37 @@ project-report-3.html
         }
         .resource-list { list-style: none; padding: 0; margin: 0; }
         .resource-list li + li { margin-top: .65rem; }
-        .resource-list a { color: var(--blue-mid); font-weight: 700; }
-        .sidebar-cta {
-            background: linear-gradient(135deg, #eef4f9, white);
-            text-align: center;
+        .resource-list a {
+            color: var(--blue-mid);
+            font-weight: 600;
+            transition: color .2s ease;
         }
+        .resource-list a:hover {
+            color: var(--blue-light);
+            text-decoration: underline;
+        }
+        .sidebar-cta {
+            background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+            text-align: center;
+            padding: 1.5rem;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .sidebar-cta p { margin: 0 0 1rem; color: white; }
         .btn-small {
             display: inline-block;
-            margin-top: .4rem;
-            background: var(--blue);
-            color: white;
-            padding: .7rem 1rem;
+            background: white;
+            color: var(--blue);
+            padding: .6rem 1.5rem;
             border-radius: 8px;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: .95rem;
+            transition: background .3s ease;
         }
+        .btn-small:hover { background: var(--blue-pale); }
         .project-navigation { padding: 1.8rem 0 4rem; text-align: center; }
         .nav-center { color: var(--blue-mid); font-weight: 700; }
         .footer {
@@ -351,10 +393,24 @@ project-report-3.html
             .report-sidebar { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 640px) {
-            .report-meta, .goal-grid, .report-sidebar { grid-template-columns: 1fr; }
+            .goal-grid, .report-sidebar { grid-template-columns: 1fr; }
+            .report-meta { gap: 1.5rem 2.5rem; }
             .footer-content { flex-direction: column; }
             .process-step { grid-template-columns: 1fr; }
             .report-header { padding: 4.5rem 1rem 3.5rem; }
+        }
+        @media (max-width: 480px) {
+            .project-badge {
+                position: static;
+                display: flex;
+                width: fit-content;
+                margin: 0 auto .75rem;
+            }
+            .report-category {
+                display: flex;
+                width: fit-content;
+                margin: 0 auto 1.5rem;
+            }
         }
     </style>
 </head>
@@ -368,15 +424,13 @@ project-report-3.html
 
     <section class="report-header">
         <div class="container">
+            <div class="project-badge">🤖 Teacher-Centered AI</div>
             <span class="report-category">Instructional Design • 2026</span>
-            <div class="project-badge">Teacher-Centered AI</div>
             <h1 class="report-title">AI Lesson Planning Platform</h1>
             <p class="report-subtitle">
-                Helping teachers create, evaluate, and refine lesson plans while developing AI literacy through transparent, teacher-controlled evaluation.
+                An AI-supported platform that helps K–12 teachers create, evaluate, and refine lesson plans while maintaining professional judgment and developing AI literacy.
             </p>
-            <div class="report-actions">
-                <a href="https://lesson-evaluator.vercel.app" target="_blank" rel="noopener noreferrer" class="primary-cta">🚀 Try the Lesson Platform Live</a>
-            </div>
+            <a href="https://lesson-evaluator.vercel.app" target="_blank" rel="noopener noreferrer" class="hero-demo-btn">🚀 Try the Lesson Platform Live</a>
             <div class="report-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
@@ -529,8 +583,8 @@ project-report-3.html
                         <p>
                             The live platform allows users to explore the lesson generator, advanced preference settings, lesson evaluation workflow, and teacher override features.
                         </p>
-                        <div style="margin-top:1.3rem;">
-                            <a href="https://lesson-evaluator.vercel.app" target="_blank" rel="noopener noreferrer" class="primary-cta" style="background:var(--blue);color:white;">Open Live Product ↗</a>
+                        <div style="margin-top:1.5rem;">
+                            <a href="https://lesson-evaluator.vercel.app" target="_blank" rel="noopener noreferrer" class="live-demo-btn">🚀 Open Live Product</a>
                         </div>
                         <p class="privacy-note">
                             The portfolio describes the purpose and structure of the faculty-developed rubric without reproducing its full scoring criteria.
