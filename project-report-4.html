@@ -176,6 +176,290 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Backward Design flow (Instructional Design Approach section) */
+        .backward-design-flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 1.5rem 0 1rem;
+        }
+        .bd-stage {
+            flex: 1;
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .bd-stage h4 {
+            margin: 0.75rem 0 0.5rem;
+            color: #007BA7;
+        }
+        .bd-stage p { margin: 0; }
+        .bd-stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .bd-stage-experience {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border-color: #00bfff;
+        }
+        .bd-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            flex-shrink: 0;
+        }
+        .bd-connector::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 10px solid #00bfff;
+        }
+        .bd-sequence {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+        }
+        .bd-seq-step {
+            background: #fff;
+            border: 2px solid #007BA7;
+            color: #007BA7;
+            font-weight: 700;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+        .bd-seq-arrow {
+            color: #00bfff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .backward-design-flow {
+                flex-direction: column;
+            }
+            .bd-connector {
+                width: auto;
+                height: 1.5rem;
+                transform: rotate(90deg);
+            }
+        }
+
+        /* AI interaction flow (How AI Supports Learning section) */
+        .ai-flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 1.5rem 0;
+        }
+        .ai-flow-step {
+            flex: 1;
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .ai-flow-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .ai-flow-step p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.92rem;
+        }
+        .ai-flow-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            flex-shrink: 0;
+        }
+        .ai-flow-connector::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 9px solid #00bfff;
+        }
+        @media (max-width: 768px) {
+            .ai-flow {
+                flex-direction: column;
+            }
+            .ai-flow-connector {
+                width: auto;
+                height: 1.25rem;
+                transform: rotate(90deg);
+            }
+        }
+
+        /* AI prompt disclosure (How AI Supports Learning section) */
+        .ai-prompt-disclosure {
+            margin: 1.5rem 0;
+        }
+        .ai-prompt-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #fff;
+            border: 2px solid #007BA7;
+            color: #007BA7;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .ai-prompt-toggle:hover {
+            background: #007BA7;
+            color: #fff;
+        }
+        .ai-prompt-toggle:focus-visible {
+            outline: 3px solid #00bfff;
+            outline-offset: 2px;
+        }
+        .ai-prompt-toggle-icon {
+            display: inline-block;
+            width: 1em;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1;
+        }
+        .ai-prompt-toggle-icon::before {
+            content: '+';
+        }
+        .ai-prompt-toggle[aria-expanded="true"] .ai-prompt-toggle-icon::before {
+            content: '\2212';
+        }
+        .ai-prompt-panel {
+            margin-top: 1rem;
+            background: #f8fbff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .ai-prompt-content p {
+            margin: 0;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        .ai-prompt-content pre {
+            margin: 0;
+            padding: 1rem;
+            background: #0a2a3a;
+            color: #e6f4ff;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Findings list (Iteration & Evaluation section) */
+        .findings-list {
+            margin-top: 1.5rem;
+        }
+        .finding-card {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .finding-card:last-child {
+            margin-bottom: 0;
+        }
+        .finding-half {
+            min-width: 0;
+            padding-left: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+        .finding-before {
+            border-left-color: var(--crushed-berry);
+        }
+        .finding-after {
+            border-left-color: var(--hunter-green);
+        }
+        .finding-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .finding-before .finding-label {
+            color: var(--crushed-berry);
+        }
+        .finding-after .finding-label {
+            color: var(--hunter-green);
+        }
+        .finding-half p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .finding-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.75rem;
+            flex-shrink: 0;
+        }
+        .finding-connector::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 9px solid #00bfff;
+        }
+        @media (max-width: 768px) {
+            .finding-card {
+                grid-template-columns: 1fr;
+            }
+            .finding-connector {
+                width: auto;
+                height: 1.25rem;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -228,49 +512,174 @@
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Research-Based Design</h2>
-                        <p>
-                            To address this challenge, I designed an AI-supported learning experience grounded in the Feedback Literacy Framework (Carless & Boud, 2018). The learning experience focuses on four dimensions of feedback literacy:
-                        </p>
-                        <ul>
-                            <li>1. Managing Affect</li>
-                            <li>2. Appreciating Feedback</li>
-                            <li>3. Making Judgements</li>
-                            <li>4. Taking Action</li>
-                        </ul>
-                        <p>
-                            Rather than simply referencing these theories, I analyzed the literature to identify the core instructional principles underlying each dimension and translated those principles into learning activities and AI-supported interactions.
-                        </p>
-                        <div class="highlight-box">
-                            <h4>Translating Theory into Practice</h4>
-                            <p>
-                                The Appreciating Feedback module was informed by Winstone and Boud's (2021) work on helping students understand the purpose and value of feedback. The Making Judgements module drew on Panadero and Broadbent's (2018) research on evaluative judgement, encouraging learners to prioritize and evaluate feedback rather than treating all comments equally. The Taking Action module incorporated self-regulated learning principles from Zimmerman (2002), guiding students to develop concrete plans for future improvement.
-                            </p>
+                        <h2 class="section-heading">Instructional Design Approach</h2>
+
+                        <h3>ADDIE</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>Analyze</h4>
+                                    <p>Identified that students often understand what feedback says but struggle to translate it into future action.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>Design</h4>
+                                    <p>Defined the learning outcome of creating an actionable improvement plan and designed scaffolded activities around feedback literacy.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h4>Develop</h4>
+                                    <p>Built four learning modules and AI-supported interactions.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h4>Implement</h4>
+                                    <p>Learners completed the prototype using authentic feedback scenarios and their own feedback.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">5</span>
+                                <div class="step-content">
+                                    <h4>Evaluate</h4>
+                                    <p>Conducted five rounds of usability testing and iteratively redesigned the experience.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Backward Design</h3>
+                        <div class="backward-design-flow">
+                            <div class="bd-stage">
+                                <span class="bd-stage-number">1</span>
+                                <h4>Desired Outcome</h4>
+                                <p>Students can independently turn instructor feedback into an actionable improvement plan.</p>
+                            </div>
+                            <div class="bd-connector" aria-hidden="true"></div>
+                            <div class="bd-stage">
+                                <span class="bd-stage-number">2</span>
+                                <h4>Evidence of Learning</h4>
+                                <p>Students analyze feedback, prioritize areas for improvement, and create an actionable improvement plan.</p>
+                            </div>
+                            <div class="bd-connector" aria-hidden="true"></div>
+                            <div class="bd-stage bd-stage-experience">
+                                <span class="bd-stage-number">3</span>
+                                <h4>Learning Experience</h4>
+                                <div class="bd-sequence">
+                                    <span class="bd-seq-step">Learn</span>
+                                    <span class="bd-seq-arrow" aria-hidden="true">&rsaquo;</span>
+                                    <span class="bd-seq-step">Assess</span>
+                                    <span class="bd-seq-arrow" aria-hidden="true">&rsaquo;</span>
+                                    <span class="bd-seq-step">Practice</span>
+                                    <span class="bd-seq-arrow" aria-hidden="true">&rsaquo;</span>
+                                    <span class="bd-seq-step">Apply</span>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Instructional Design Approach</h2>
+                        <h2 class="section-heading">How AI Supports Learning</h2>
+
+                        <h3>AI as an Instructional Scaffold</h3>
                         <p>
-                            The learning experience was designed around students' own feedback rather than hypothetical examples. Learners upload or review feedback they have received and complete a sequence of structured reflection activities aligned with the four dimensions of feedback literacy.
+                            In the Practice module, AI guides learners in developing an evidence-based revision plan. Rather than generating the plan for them, the AI asks structured questions, evaluates responses against a rubric, and provides additional guidance when needed.
                         </p>
+
+                        <h3>Interaction Flow Design</h3>
+                        <div class="ai-flow">
+                            <div class="ai-flow-step">
+                                <span class="ai-flow-number">1</span>
+                                <p>Student Response</p>
+                            </div>
+                            <span class="ai-flow-connector" aria-hidden="true"></span>
+                            <div class="ai-flow-step">
+                                <span class="ai-flow-number">2</span>
+                                <p>AI Evaluates Against Rubric</p>
+                            </div>
+                            <span class="ai-flow-connector" aria-hidden="true"></span>
+                            <div class="ai-flow-step">
+                                <span class="ai-flow-number">3</span>
+                                <p>Adaptive Question / Feedback</p>
+                            </div>
+                            <span class="ai-flow-connector" aria-hidden="true"></span>
+                            <div class="ai-flow-step">
+                                <span class="ai-flow-number">4</span>
+                                <p>Student Revises Thinking</p>
+                            </div>
+                        </div>
+
+                        <div class="ai-prompt-disclosure">
+                            <button type="button" class="ai-prompt-toggle" id="ai-prompt-toggle" aria-expanded="false" aria-controls="ai-prompt-panel">
+                                <span class="ai-prompt-toggle-icon" aria-hidden="true"></span>
+                                View AI Prompt Design
+                            </button>
+                            <div class="ai-prompt-panel" id="ai-prompt-panel" role="region" aria-labelledby="ai-prompt-toggle" hidden>
+                                <div class="ai-prompt-content">
+                                    <p>Full AI prompt design will be added here.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>AI-Assisted Development</h4>
                         <p>
-                            Within Module 3, I designed AI-supported interactions that scaffold students' thinking and reflection processes. The AI does not provide answers or corrections. Instead, it uses prompts and guided questioning to help students interpret feedback, evaluate its significance, and identify meaningful next steps.
-                        </p>
-                        <p>
-                            By integrating learning science principles directly into both assessment activities and AI interactions, the design supports deeper engagement with feedback while encouraging learner ownership of the improvement process.
+                            Claude Code was used to support platform development, debugging, and implementation while I defined the instructional architecture, learning interactions, and design requirements.
                         </p>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Final Learning Experience</h2>
+                        <h2 class="section-heading">Iteration &amp; Evaluation</h2>
                         <p>
-                            The final product is an AI-supported feedback literacy intervention that helps students move from receiving feedback to acting on it.
+                            After conducting <strong>five rounds of user testing with college students</strong>, I identified recurring usability challenges and iteratively refined the learning experience based on learner feedback and observations.
                         </p>
+
+                        <div class="findings-list">
+                            <div class="finding-card">
+                                <div class="finding-half finding-before">
+                                    <span class="finding-label">User Testing Finding</span>
+                                    <p>Learners found the prototype text-heavy.</p>
+                                </div>
+                                <span class="finding-connector" aria-hidden="true"></span>
+                                <div class="finding-half finding-after">
+                                    <span class="finding-label">Design Change</span>
+                                    <p>Added relevant visuals and reorganized content to improve information hierarchy.</p>
+                                </div>
+                            </div>
+                            <div class="finding-card">
+                                <div class="finding-half finding-before">
+                                    <span class="finding-label">User Testing Finding</span>
+                                    <p>Learners lacked context when entering some modules.</p>
+                                </div>
+                                <span class="finding-connector" aria-hidden="true"></span>
+                                <div class="finding-half finding-after">
+                                    <span class="finding-label">Design Change</span>
+                                    <p>Added module introductions explaining their purpose and learning objectives.</p>
+                                </div>
+                            </div>
+                            <div class="finding-card">
+                                <div class="finding-half finding-before">
+                                    <span class="finding-label">User Testing Finding</span>
+                                    <p>Learners faced unnecessary complexity in some activities.</p>
+                                </div>
+                                <span class="finding-connector" aria-hidden="true"></span>
+                                <div class="finding-half finding-after">
+                                    <span class="finding-label">Design Change</span>
+                                    <p>Simplified and reduced activities while maintaining the targeted learning outcomes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Final Outcome</h2>
                         <p>
-                            Through structured reflection activities, evidence-based scaffolding, and guided AI interactions, students develop the skills needed to understand feedback, evaluate its importance, and create actionable improvement plans. The project demonstrates my ability to synthesize learning science research, design learner-centered instructional experiences, and translate theoretical frameworks into practical educational solutions.
+                            The final learning experience provides students with a scaffolded pathway from understanding feedback to creating an actionable improvement plan. By combining feedback literacy research, adaptive AI support, and iterative user-centered design, <strong>ActiOn</strong> demonstrates how learning science can be translated into a practical digital learning experience.
                         </p>
-                        <a href="https://acti-on-feedback-literacy.vercel.app" target="_blank" class="live-demo-btn">Try ActiOn Live</a>
                     </section>
 
                 </article>
@@ -347,5 +756,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            var toggle = document.getElementById('ai-prompt-toggle');
+            var panel = document.getElementById('ai-prompt-panel');
+            if (!toggle || !panel) return;
+            toggle.addEventListener('click', function () {
+                var expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                panel.hidden = expanded;
+            });
+        })();
+    </script>
 </body>
 </html>
