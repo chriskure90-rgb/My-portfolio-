@@ -1275,6 +1275,20 @@ section {
     font-weight: 500;
 }
 
+.sidebar-group-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--text-light);
+    margin: 1.25rem 0 0.5rem;
+}
+
+.sidebar-group-label:first-child {
+    margin-top: 0;
+}
+
 .resource-list {
     list-style: none;
     padding: 0;

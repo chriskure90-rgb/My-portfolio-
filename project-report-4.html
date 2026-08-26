@@ -115,6 +115,7 @@
         .live-demo-btn::before { content: '🚀'; }
 
         .project-badge {
+            position: static;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -124,10 +125,31 @@
             padding: 0.4rem 1rem;
             border-radius: 50px;
             font-size: 0.85rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
             animation: fadeInDown 0.6s ease;
         }
         .project-badge::before { content: '📊'; font-size: 0.9rem; }
+
+        /* Centered hero badge row */
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-badges .report-category {
+            margin-bottom: 0;
+        }
+        @media (max-width: 480px) {
+            .hero-badges .project-badge,
+            .hero-badges .report-category {
+                max-width: 100%;
+                white-space: normal;
+                text-align: center;
+            }
+        }
         .section-heading { position: relative; padding-left: 1rem; }
         .section-heading::before {
             content: '';
@@ -484,8 +506,10 @@
 
     <section class="report-header">
         <div class="container">
-            <div class="project-badge">AI-Supported Learning Experience</div>
-            <span class="report-category">Instructional Design • 2026</span>
+            <div class="hero-badges">
+                <span class="report-category">Instructional Design • 2026</span>
+                <div class="project-badge">AI-Supported Learning Experience</div>
+            </div>
             <h1 class="report-title">Developing Student Feedback Literacy with AI</h1>
             <p class="report-subtitle">An AI-supported learning experience that helps students move from receiving feedback to acting on it — grounded in Carless & Boud's (2018) Feedback Literacy Framework.</p>
 
@@ -855,13 +879,19 @@ Finish with a short encouraging statement.</code></pre>
                         </dl>
                     </div>
                     <div class="sidebar-section">
-                        <h3>Theoretical Frameworks</h3>
+                        <h3>Theoretical &amp; Design Frameworks</h3>
+                        <span class="sidebar-group-label">Learning Science</span>
                         <div class="sidebar-tags">
                             <span>Carless & Boud (2018)</span>
                             <span>Feedback Literacy</span>
                             <span>Winstone & Boud (2021)</span>
                             <span>Panadero & Broadbent (2018)</span>
-                            <span>Zimmerman (2002) SRL</span>
+                            <span>Zimmerman (2002) — SRL</span>
+                        </div>
+                        <span class="sidebar-group-label">Instructional Design</span>
+                        <div class="sidebar-tags">
+                            <span>ADDIE</span>
+                            <span>Backward Design</span>
                         </div>
                     </div>
                     <div class="sidebar-section">
