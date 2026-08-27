@@ -390,6 +390,88 @@
                 transform: rotate(90deg);
             }
         }
+
+        /* Findings list (Iteration & Evaluation section) */
+        .findings-list {
+            margin-top: 1.5rem;
+        }
+        .finding-card {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .finding-card:last-child {
+            margin-bottom: 0;
+        }
+        .finding-card h4 {
+            margin: 0 0 1rem;
+            color: #007BA7;
+            font-size: 1.05rem;
+        }
+        .finding-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .finding-half {
+            min-width: 0;
+            padding-left: 0.9rem;
+            border-left: 3px solid transparent;
+        }
+        .finding-before {
+            border-left-color: var(--crushed-berry);
+        }
+        .finding-after {
+            border-left-color: var(--hunter-green);
+        }
+        .finding-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .finding-before .finding-label {
+            color: var(--crushed-berry);
+        }
+        .finding-after .finding-label {
+            color: var(--hunter-green);
+        }
+        .finding-half p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .finding-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.75rem;
+            flex-shrink: 0;
+        }
+        .finding-connector::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 9px solid #00bfff;
+        }
+        @media (max-width: 768px) {
+            .finding-row {
+                grid-template-columns: 1fr;
+            }
+            .finding-connector {
+                width: auto;
+                height: 1.25rem;
+                transform: rotate(90deg);
+                margin: 0.25rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -474,7 +556,7 @@
                                 <span class="step-number">4</span>
                                 <div class="step-content">
                                     <h4>Implement</h4>
-                                    <p>Conducted <strong>three iterative rounds</strong> of user testing with <strong>nine international students</strong> to observe how learners interacted with the experience and prepared for classroom discussion.</p>
+                                    <p>Conducted <strong>six rounds</strong> of user testing with <strong>nine international students</strong> to evaluate how learners interacted with the experience and prepared for classroom discussion.</p>
                                 </div>
                             </div>
                             <div class="process-step">
@@ -616,44 +698,64 @@
 
                     <section class="report-section">
                         <h2 class="section-heading">Iteration &amp; Evaluation</h2>
-                        <p>The instructional design process involved three rounds of testing and refinement.</p>
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <span class="step-number">1</span>
-                                <div class="step-content">
-                                    <h4>Round 1</h4>
-                                    <p>Students advanced regardless of response quality, revealing the need for mastery-based progression.</p>
+                        <p>
+                            Discuss Ready was refined through <strong>six rounds</strong> of user testing with <strong>nine international students</strong>. Testing focused on both the quality of AI-supported interactions and the usability of the learning experience.
+                        </p>
+
+                        <div class="findings-list">
+                            <div class="finding-card">
+                                <h4>1. Inconsistent AI Scaffolding</h4>
+                                <div class="finding-row">
+                                    <div class="finding-half finding-before">
+                                        <span class="finding-label">User Testing Finding</span>
+                                        <p>AI responses were inconsistent and sometimes continued asking follow-up questions without determining when learners were ready to progress.</p>
+                                    </div>
+                                    <span class="finding-connector" aria-hidden="true"></span>
+                                    <div class="finding-half finding-after">
+                                        <span class="finding-label">Design Change</span>
+                                        <p>Added a structured evaluation rubric and progression rules so the AI could determine when additional scaffolding was needed and when learners were ready to move to the next stage.</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="process-step">
-                                <span class="step-number">2</span>
-                                <div class="step-content">
-                                    <h4>Round 2</h4>
-                                    <p>Mastery gating was added, but learners became stuck in repetitive retry loops.</p>
+                            <div class="finding-card">
+                                <h4>2. Difficulty Accessing Saved Phrases</h4>
+                                <div class="finding-row">
+                                    <div class="finding-half finding-before">
+                                        <span class="finding-label">User Testing Finding</span>
+                                        <p>Learners had difficulty locating the phrases they had prepared and saved for classroom discussion.</p>
+                                    </div>
+                                    <span class="finding-connector" aria-hidden="true"></span>
+                                    <div class="finding-half finding-after">
+                                        <span class="finding-label">Design Change</span>
+                                        <p>Added easier access to saved phrases at the beginning of the experience so learners could quickly review their prepared contributions.</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="process-step">
-                                <span class="step-number">3</span>
-                                <div class="step-content">
-                                    <h4>Round 3</h4>
-                                    <p>Scoring thresholds, scaffolded hints, text-grounded feedback, and accessibility-focused language constraints were introduced to balance rigor and learner support.</p>
+                            <div class="finding-card">
+                                <h4>3. Unclear Navigation</h4>
+                                <div class="finding-row">
+                                    <div class="finding-half finding-before">
+                                        <span class="finding-label">User Testing Finding</span>
+                                        <p>Learners were sometimes unsure how to move between stages of the preparation process.</p>
+                                    </div>
+                                    <span class="finding-connector" aria-hidden="true"></span>
+                                    <div class="finding-half finding-after">
+                                        <span class="finding-label">Design Change</span>
+                                        <p>Added clear Back and Next buttons to improve navigation and create a more intuitive learning flow.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <p>Each revision was informed by identified learner challenges and validated through structured testing.</p>
                     </section>
 
                     <section class="report-section">
                         <h2 class="section-heading">Final Outcome</h2>
-                        <p>The final version of Discuss Ready guides learners through four stages:</p>
-                        <ul>
-                            <li>1. Self-Explanation</li>
-                            <li>2. Prior Knowledge Connection</li>
-                            <li>3. Opinion Formation</li>
-                            <li>4. Counterargument</li>
-                        </ul>
-                        <p>After completing the sequence, learners receive a personalized discussion rehearsal summary based on their own responses, helping them confidently participate in classroom discussions.</p>
-                        <p>The project demonstrates my ability to translate learning science research into a practical instructional system through iterative design, usability testing, and evidence-based decision making.</p>
+                        <p>
+                            Students developed discussion-ready contributions by connecting course concepts to their personal experiences, rehearsing their ideas with AI, and preparing key sentences before class.
+                        </p>
+                        <p>
+                            By preparing their ideas and language in advance, learners reduced the amount of real-time language formulation required during classroom discussion. Rather than generating responses from scratch, students could draw from prepared ideas and adapt their phrasing as the discussion evolved, supporting more confident and meaningful participation.
+                        </p>
                         <a href="https://discuss-ready.vercel.app" target="_blank" class="live-demo-btn">Try Discuss Ready Live</a>
                     </section>
 
