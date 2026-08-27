@@ -174,6 +174,222 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ICAP progression (Instructional Design Approach section) */
+        .icap-flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 1.5rem 0;
+        }
+        .icap-stage {
+            flex: 1;
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+        .icap-stage h4 {
+            margin: 0.6rem 0 0.5rem;
+            color: #007BA7;
+            font-size: 1rem;
+        }
+        .icap-stage p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+        .icap-stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .icap-stage-focus {
+            background: linear-gradient(135deg, #E1EAF5, #f8fbff);
+            border: 2px solid #00bfff;
+        }
+        .icap-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.75rem;
+            flex-shrink: 0;
+        }
+        .icap-connector::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 9px solid #00bfff;
+        }
+        @media (max-width: 768px) {
+            .icap-flow {
+                flex-direction: column;
+            }
+            .icap-connector {
+                width: auto;
+                height: 1.25rem;
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Self-Explanation (Instructional Design Approach section) */
+        .self-explain-block {
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-left: 3px solid #00bfff;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0 0;
+        }
+        .self-explain-tag {
+            display: inline-block;
+            background: rgba(0,191,255,0.12);
+            color: #007BA7;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+            margin-bottom: 0.6rem;
+        }
+        .self-explain-block p {
+            margin: 0;
+        }
+
+        /* AI stage flow (How AI Supports Learning section) */
+        .ai-stage-sequence {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin: 1.25rem 0 0.5rem;
+        }
+        .ai-stage-sequence-step {
+            background: #fff;
+            border: 2px solid #007BA7;
+            color: #007BA7;
+            font-weight: 700;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+        .ai-stage-sequence-arrow {
+            color: #00bfff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .ai-stage-flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 1.5rem 0;
+        }
+        .ai-stage-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #fafcff;
+            border: 1px solid #e8f0f8;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem 1.5rem;
+        }
+        .ai-stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00bfff, #007BA7);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+        }
+        .ai-stage-card h4 {
+            margin: 0 0 0.15rem;
+            color: #007BA7;
+            font-size: 1.05rem;
+        }
+        .ai-stage-subtitle {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4B9CD3;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.85rem;
+        }
+        .ai-stage-detail {
+            margin-bottom: 0.75rem;
+        }
+        .ai-stage-detail-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #8a8f98;
+            margin-bottom: 0.2rem;
+        }
+        .ai-stage-detail p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        .ai-stage-screenshot {
+            margin-top: auto;
+            padding: 0.5rem;
+            border: 1px solid #e0e8f0;
+            border-radius: 8px;
+            background: #fff;
+            text-align: center;
+        }
+        .ai-stage-screenshot img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 4px;
+        }
+        .ai-stage-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.75rem;
+            flex-shrink: 0;
+        }
+        .ai-stage-connector::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 9px solid #00bfff;
+        }
+        @media (max-width: 768px) {
+            .ai-stage-flow {
+                flex-direction: column;
+            }
+            .ai-stage-connector {
+                width: auto;
+                height: 1.25rem;
+                transform: rotate(90deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -217,23 +433,189 @@
 
                     <section class="report-section">
                         <h2 class="section-heading">The Problem</h2>
-                        <p>International and non-traditional students often struggle to participate in classroom discussions, not because they lack ideas, but because they lack structured support for transforming their understanding into discussion-ready contributions. Existing preparation is often passive, leaving students without opportunities to practice meaningful participation.</p>
+                        <p>
+                            International students may have meaningful ideas to contribute to classroom discussions but struggle to express them spontaneously in English. Students may think, <em>"I have something I want to share, but it is difficult to form sentences immediately,"</em> or worry that sharing an idea others do not understand could be embarrassing.
+                        </p>
+                        <p>
+                            This challenge affects not only individual participation but also the classroom learning experience. Valuable perspectives and ideas may never become part of the discussion simply because students need more time and support to prepare how they will communicate them.
+                        </p>
+                        <p>
+                            <strong>Discuss Ready</strong> addresses this gap through a structured pre-class preparation process. Learners deepen their understanding of course materials, develop their ideas in advance, and practice expressing those ideas in English, helping them enter classroom discussions better prepared to participate and contribute.
+                        </p>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Research-Based Design</h2>
-                        <p>Discuss Ready is an AI-supported discussion preparation tool grounded in learning science rather than intuition.</p>
-                        <p>The design draws from three key research foundations:</p>
-                        <ul>
-                            <li><strong>Self-Explanation (Bielaczyc et al., 1995):</strong> Students first summarize the material and connect it to their prior experiences.</li>
-                            <li><strong>Argumentation (Nussbaum et al., 2007):</strong> Students develop evidence-based opinions and consider opposing viewpoints.</li>
-                            <li><strong>Cognitive Tutoring (Aleven & Koedinger, 2002):</strong> Feedback provides hints and guidance rather than answers, encouraging learners to engage directly with course materials.</li>
-                        </ul>
-                        <p>This structure was designed to move learners from passive engagement toward constructive participation consistent with the ICAP framework.</p>
+                        <h2 class="section-heading">Instructional Design Approach</h2>
+
+                        <h3>ADDIE</h3>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>Analyze</h4>
+                                    <p>Identified a participation barrier through international students' experiences: students often had ideas to contribute but hesitated to speak because they needed more time to formulate their thoughts in English.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>Design</h4>
+                                    <p>Designed a scaffolded preparation experience using activities such as self-explanation, AI-supported speaking practice, and sentence preparation to help students develop and rehearse ideas before class.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h4>Develop</h4>
+                                    <p>Developed the Discuss Ready prototype and integrated the learning activities into a guided pre-class preparation experience.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h4>Implement</h4>
+                                    <p>Conducted <strong>three iterative rounds</strong> of user testing with <strong>nine international students</strong> to observe how learners interacted with the experience and prepared for classroom discussion.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">5</span>
+                                <div class="step-content">
+                                    <h4>Evaluate</h4>
+                                    <p>Observed an increase in one learner's classroom speaking frequency from approximately <strong>two to five contributions per class</strong>, while usability findings informed iterative improvements to the prototype.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>ICAP Framework</h3>
+                        <div class="icap-flow">
+                            <div class="icap-stage">
+                                <span class="icap-stage-number">1</span>
+                                <h4>Passive</h4>
+                                <p>Students read and review course preparation materials.</p>
+                            </div>
+                            <span class="icap-connector" aria-hidden="true"></span>
+                            <div class="icap-stage">
+                                <span class="icap-stage-number">2</span>
+                                <h4>Active</h4>
+                                <p>Students identify and organize relevant information from the materials.</p>
+                            </div>
+                            <span class="icap-connector" aria-hidden="true"></span>
+                            <div class="icap-stage icap-stage-focus">
+                                <span class="icap-stage-number">3</span>
+                                <h4>Constructive</h4>
+                                <p>Students explain concepts in their own words and connect them with prior knowledge and personal experiences.</p>
+                            </div>
+                            <span class="icap-connector" aria-hidden="true"></span>
+                            <div class="icap-stage">
+                                <span class="icap-stage-number">4</span>
+                                <h4>Interactive</h4>
+                                <p>Students enter class prepared with ideas they can contribute, discuss, and develop with others.</p>
+                            </div>
+                        </div>
+                        <p>
+                            Discuss Ready is designed to help learners move from consuming course material toward constructing their own understanding and preparing to interact with others. The pre-class activities particularly scaffold the transition from <strong>Active to Constructive</strong>, so students arrive with ideas they are ready to share during classroom discussion.
+                        </p>
+
+                        <h3>Self-Explanation</h3>
+                        <div class="self-explain-block">
+                            <span class="self-explain-tag">Constructive Phase</span>
+                            <p>
+                                To support the <strong>Constructive</strong> phase, learners explain concepts from the assigned reading in their own words with AI-guided prompts and connect those concepts to their prior knowledge and experiences. This helps learners develop personally meaningful interpretations that can become potential contributions to classroom discussion.
+                            </p>
+                        </div>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Iterative Design and Testing</h2>
+                        <h2 class="section-heading">How AI Supports Learning</h2>
+
+                        <h3>AI as an Adaptive Learning Scaffold</h3>
+                        <p>
+                            AI supports learners at three points in the preparation process, with each interaction designed for a different learning need.
+                        </p>
+
+                        <div class="ai-stage-sequence">
+                            <span class="ai-stage-sequence-step">Develop Understanding</span>
+                            <span class="ai-stage-sequence-arrow" aria-hidden="true">&rsaquo;</span>
+                            <span class="ai-stage-sequence-step">Rehearse Discussion</span>
+                            <span class="ai-stage-sequence-arrow" aria-hidden="true">&rsaquo;</span>
+                            <span class="ai-stage-sequence-step">Prepare Language</span>
+                        </div>
+
+                        <div class="ai-stage-flow">
+                            <div class="ai-stage-card">
+                                <span class="ai-stage-number">1</span>
+                                <h4>Self-Explanation</h4>
+                                <span class="ai-stage-subtitle">Develop Understanding</span>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">Learner Action</span>
+                                    <p>Explains the course material in their own words.</p>
+                                </div>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">AI's Role</span>
+                                    <p>Evaluates the response, provides targeted feedback, and asks follow-up questions.</p>
+                                </div>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">Learning Purpose</span>
+                                    <p>Connect course concepts with prior knowledge and personal experiences.</p>
+                                </div>
+                                <div class="ai-stage-screenshot">
+                                    <img src="images/Discuss_Ready_understand.png" width="1293" height="946" loading="lazy" alt="Discuss Ready AI Tutor interface showing a learner's self-explanation response scored 1 out of 2, with feedback guiding the student to revise their answer using the material's actual content.">
+                                </div>
+                            </div>
+                            <span class="ai-stage-connector" aria-hidden="true"></span>
+                            <div class="ai-stage-card">
+                                <span class="ai-stage-number">2</span>
+                                <h4>Rehearsal</h4>
+                                <span class="ai-stage-subtitle">Practice Spontaneous Discussion</span>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">Learner Action</span>
+                                    <p>Uses the ideas developed in the previous phase in a simulated conversation with an AI discussion partner.</p>
+                                </div>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">AI's Role</span>
+                                    <p>Acts as a discussion partner with time-limited responses that recreate some of the pressure of spontaneous classroom discussion.</p>
+                                </div>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">Learning Purpose</span>
+                                    <p>Practice expressing ideas before participating in class.</p>
+                                </div>
+                                <div class="ai-stage-screenshot">
+                                    <img src="images/Discuss_Ready_rehearsal.png" width="1291" height="703" loading="lazy" alt="Discuss Ready voice rehearsal interface showing a learner's recorded audio response, the Speak button, and Next Topic and End Session controls.">
+                                </div>
+                            </div>
+                            <span class="ai-stage-connector" aria-hidden="true"></span>
+                            <div class="ai-stage-card">
+                                <span class="ai-stage-number">3</span>
+                                <h4>Sentence Preparation</h4>
+                                <span class="ai-stage-subtitle">Prepare Language for Participation</span>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">Learner Action</span>
+                                    <p>Expresses what they want to say in their own words.</p>
+                                </div>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">AI's Role</span>
+                                    <p>Organizes and refines the language into a clearer, grammatically appropriate expression while preserving the learner's original idea.</p>
+                                </div>
+                                <div class="ai-stage-detail">
+                                    <span class="ai-stage-detail-label">Learning Purpose</span>
+                                    <p>Prepare language learners can save and use during classroom discussion.</p>
+                                </div>
+                                <div class="ai-stage-screenshot">
+                                    <img src="images/Discuss_Ready_sentence.png" width="714" height="406" loading="lazy" alt="Discuss Ready sentence preparation tool showing the 'What do you want to say?' prompt and the Rewrite for me feature that refines the learner's phrasing.">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4>Learner Agency by Design</h4>
+                            <p>
+                                Across all three interactions, AI supports the learner's thinking and communication rather than generating ideas on their behalf. Learners develop the original interpretation or contribution first, while AI provides feedback, rehearsal opportunities, and language support to help them communicate it effectively.
+                            </p>
+                        </div>
+                    </section>
+
+                    <section class="report-section">
+                        <h2 class="section-heading">Iteration &amp; Evaluation</h2>
                         <p>The instructional design process involved three rounds of testing and refinement.</p>
                         <div class="process-steps">
                             <div class="process-step">
@@ -262,7 +644,7 @@
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Final Product</h2>
+                        <h2 class="section-heading">Final Outcome</h2>
                         <p>The final version of Discuss Ready guides learners through four stages:</p>
                         <ul>
                             <li>1. Self-Explanation</li>
