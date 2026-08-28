@@ -213,19 +213,7 @@ project-report-3.html
         }
         .highlight-box h4 { margin: 0 0 .45rem; }
         .highlight-box p { margin: 0; }
-        .goal-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1.4rem;
-        }
-        .goal-card {
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.35rem;
-            background: #fbfdfb;
-        }
-        .goal-card h4 { margin: 0 0 .45rem; color: var(--blue-mid); }
+        .highlight-box p + p { margin-top: .6rem; }
         .process-steps { display: grid; gap: 1rem; margin-top: 1.4rem; }
         .process-step {
             display: grid;
@@ -393,7 +381,7 @@ project-report-3.html
             .report-sidebar { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 640px) {
-            .goal-grid, .report-sidebar { grid-template-columns: 1fr; }
+            .report-sidebar { grid-template-columns: 1fr; }
             .report-meta { gap: 1.5rem 2.5rem; }
             .footer-content { flex-direction: column; }
             .process-step { grid-template-columns: 1fr; }
@@ -458,27 +446,20 @@ project-report-3.html
                         <p>
                             This project is an AI-supported lesson planning platform designed to help teachers create lesson plans more efficiently while maintaining control over instructional decisions. The platform combines a customizable lesson generator with a research-informed evaluator so teachers can create a first draft, review its instructional quality, and make their own final judgments.
                         </p>
-                        <div class="goal-grid">
-                            <div class="goal-card">
-                                <h4>Help Teachers Create Lesson Plans</h4>
-                                <p>The generator reduces the time required to build a first draft while allowing teachers to adjust the lesson to fit their instructional context.</p>
-                            </div>
-                            <div class="goal-card">
-                                <h4>Improve AI Literacy</h4>
-                                <p>The evaluator encourages teachers to review AI judgments critically instead of accepting AI-generated recommendations without reflection.</p>
-                            </div>
-                        </div>
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">Problem Statement & Context</h2>
+                        <h2 class="section-heading">The Problem</h2>
                         <p>
-                            Generative AI can quickly produce lesson plans, but the first output may not reflect the needs of a specific classroom, curriculum, or group of learners. Teachers also need ways to understand and question AI-generated evaluations rather than treating them as final decisions.
+                            Generative AI is increasingly being used to support lesson planning. It can help teachers save time and quickly generate diverse lesson ideas. However, the quality of AI-generated lesson plans can depend heavily on how teachers structure their prompts, and the initial output may not always reflect the needs of a specific classroom or instructional context.
+                        </p>
+                        <p>
+                            <strong>LessonAI</strong> addresses this challenge by providing AI-supported lesson generation while keeping teachers actively involved in the design process. Teachers can edit generated lesson plans based on their instructional needs and use an evidence-based evaluation rubric to assess lesson quality. By combining AI support with teacher judgment, LessonAI is designed to help educators save time while maintaining the quality of their instructional decisions.
                         </p>
                         <div class="highlight-box">
                             <h4>Design Challenge</h4>
                             <p>
-                                How can an AI-supported platform improve lesson-planning efficiency while keeping teachers actively involved in evaluating, adjusting, and approving instructional decisions?
+                                How might we use AI to make lesson planning more efficient while keeping teachers in control of instructional quality and decision-making?
                             </p>
                         </div>
                     </section>
@@ -566,14 +547,50 @@ project-report-3.html
                     </section>
 
                     <section class="report-section">
-                        <h2 class="section-heading">My Contribution</h2>
+                        <h2 class="section-heading">Faculty Collaboration &amp; Design Process</h2>
                         <p>
-                            I contributed to the learning design, product design, AI prompting, frontend development, and iterative refinement of the platform. I also collaborated with faculty, science teachers, and ESL teachers to identify different lesson-planning needs and translate them into flexible product features.
+                            I collaborated with faculty and educators throughout the development process, using continuous communication to translate instructional needs into product decisions. Rather than developing the platform independently and asking for feedback only at the end, I involved stakeholders throughout ideation, prototyping, development, and testing.
+                        </p>
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h4>Ideation &amp; Design Intent</h4>
+                                    <p>Discussed the initial concept with stakeholders to understand their instructional needs, expectations, and the intended role of AI in lesson planning.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h4>Prototype &amp; Alignment</h4>
+                                    <p>Built early prototypes and shared them with stakeholders to confirm that the proposed design reflected their instructional intentions before moving into full development.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h4>Product Development</h4>
+                                    <p>Developed and refined the platform based on prototype feedback, translating educator needs into product features and interaction decisions.</p>
+                                </div>
+                            </div>
+                            <div class="process-step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h4>User Testing &amp; Iteration</h4>
+                                    <p>Tested the developing product with educators, identified usability and instructional-design issues, and iterated on the experience based on their feedback.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            <strong>My Role:</strong> Learning Design • Product Design • AI Prompting • Frontend Development • User Testing &amp; Iteration
                         </p>
                         <div class="highlight-box">
                             <h4>Design Principle</h4>
                             <p>
-                                Research provides the foundation for the design, while continuous communication with educators helps the product respond to real instructional contexts.
+                                Research provides the foundation; educator expertise provides the context.
+                            </p>
+                            <p>
+                                The platform combines research-informed design with continuous educator feedback so that AI supports real instructional needs rather than determining instructional decisions.
                             </p>
                         </div>
                     </section>
