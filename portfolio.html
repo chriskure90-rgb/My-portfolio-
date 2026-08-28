@@ -16,6 +16,30 @@
             object-position: center;
             background: #ffffff;
         }
+
+        /* Discuss Ready card: secondary "Featured Student Work" tag, grouped with the meta line */
+        #discuss-ready-meta-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+        #discuss-ready-meta-row .project-meta {
+            margin-bottom: 0;
+        }
+        .featured-student-tag {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 0.65rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +95,10 @@
                         <span class="project-badge">Featured</span>
                     </div>
                     <div class="portfolio-content">
-                        <span class="project-meta">Instructional Tool • 2026</span>
+                        <div id="discuss-ready-meta-row">
+                            <span class="project-meta">Instructional Tool • 2026</span>
+                            <span class="featured-student-tag">Featured Student Work</span>
+                        </div>
                         <h3>Discuss Ready: AI-Powered Discussion Preparation Tool</h3>
                         <p>A structured tool grounded in ICAP theory that guides students through four self-explanation stages to deepen cognitive engagement before discussions.</p>
                         <div class="project-tags">
